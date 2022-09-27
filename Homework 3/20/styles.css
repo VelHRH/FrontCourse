@@ -1,0 +1,10 @@
+div {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(
+    67.5deg,
+    green 0%,
+    rgb(220, 66, 251) 25%,
+    yellow 95%
+  );
+}

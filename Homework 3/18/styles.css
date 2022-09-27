@@ -1,0 +1,11 @@
+.left, .right{
+  width: 20%;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}

@@ -1,0 +1,11 @@
+* {
+  font-weight: 700;
+  line-height: 2;
+  font-size: 14;
+  color: #a52a2a;
+  color: brown;
+  color: rgb(165, 42, 42);
+  color: hsl(0, 59%, 41%);
+  color: rgba(165, 42, 42, 1);
+  background: url(https://static.dw.com/image/45665028_6.jpg);
+}

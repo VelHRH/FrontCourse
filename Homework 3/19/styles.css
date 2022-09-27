@@ -1,0 +1,9 @@
+div {
+  margin: 30px;
+  width: 150px;
+  height: 100px;
+  background: url(https://www.w3.org/Icons/w3c_chapter.jpg);
+  background-size: contain;
+  box-shadow: inset 10px -10px 2px green, inset -10px 10px 2px #000000,
+    10px 10px 2px blue, -10px -10px 2px red;
+}

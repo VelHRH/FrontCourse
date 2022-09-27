@@ -1,0 +1,56 @@
+table{
+  border-spacing: 0;
+}
+
+td{
+  width: 50px;
+  height: 50px;
+}
+
+td:first-child{
+  background-color: blue;
+}
+
+td:nth-child(2){
+  background-color: red;
+}
+
+td:last-child{
+  background-color: blue;
+}
+
+tr:first-child > td:first-child{
+  border-top-left-radius: 50% 10px;
+  border-top-right-radius: 50%;
+}
+
+tr:last-child > td:first-child{
+  border-bottom-right-radius: 15px 50%;
+  border-bottom-left-radius: 15px 15px;
+}
+
+tr:nth-child(2) > td:last-child{
+  border-top-right-radius: 50% 35%;
+  border-bottom-right-radius: 50% 35%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+tr:first-child > td:nth-child(2){
+  border-top-left-radius: 50%;
+}
+tr:first-child > td:nth-child(3){
+  background-color: red;
+  border-top-right-radius: 50% 35%;
+  border-bottom-right-radius: 50% 35%;
+}
+
+tr:last-child > td:nth-child(2){
+  border-bottom-left-radius: 15px 50%;
+}
+
+tr:last-child > td:last-child{
+  background-color: red;
+  border-top-right-radius: 50% 35%;
+  border-bottom-right-radius: 35% 35%;
+}
