@@ -1,0 +1,32 @@
+body {
+  font-size: 20px;
+}
+.one {
+  width: 20%;
+  float: left;
+}
+.two {
+  width: 80%;
+  display: table;
+}
+.three {
+  width: 25%;
+  float: right;
+}
+.four {
+  width: 75%;
+  display: table;
+}
+.five {
+  width: 33%;
+  float: right;
+}
+.six {
+  width: 33%;
+  float: left;
+}
+
+.seven {
+  width: 34%;
+  float: right;
+}

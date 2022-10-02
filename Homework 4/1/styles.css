@@ -1,0 +1,28 @@
+div {
+  border: 2px solid black;
+  width: 10%;
+  display: inline-block;
+}
+.two {
+  float: left;
+}
+
+.one {
+  float: right;
+}
+
+.three {
+  float: right;
+}
+
+.five {
+  float: right;
+}
+
+.four {
+  float: left;
+}
+
+.six {
+  float: left;
+}

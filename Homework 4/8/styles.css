@@ -1,0 +1,27 @@
+div {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+
+.one {
+  background-color: red;
+  top: 50px;
+  left: 50px;
+}
+
+.two {
+  background-color: green;
+  top: -50px;
+}
+.three {
+  background-color: blue;
+  top: -100px;
+  left: 50px;
+}
+
+.four {
+  background-color: black;
+  top: -100px;
+}

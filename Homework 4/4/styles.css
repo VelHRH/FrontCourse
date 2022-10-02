@@ -1,0 +1,21 @@
+.main {
+  background-color: red;
+  height: 3em;
+  line-height: 1em;
+}
+.one {
+  width: 30%;
+  float: left;
+  background-color: red;
+}
+
+.two {
+  width: 30%;
+  float: right;
+  background-color: red;
+}
+.three {
+  width: 40%;
+  float: right;
+  background-color: #fff;
+}

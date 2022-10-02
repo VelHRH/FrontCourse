@@ -1,0 +1,12 @@
+li {
+  list-style-type: none;
+  line-height: 1em;
+}
+
+.hovering + .inside {
+  display: none;
+}
+
+.hovering:hover + .inside {
+  display: block;
+}

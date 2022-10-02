@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title> </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    li {
+      list-style-type: none;
+      line-height: 1em;
+    }
+
+    .inside {
+      display: none;
+    }
+    .hovering:hover .inside {
+      display: block;
+      width: 30px;
+      background-color: red;
+      position: relative;
+      top: -1em;
+    }
+    .hovering:hover + li {
+      display: none;
+    }
+  </style>
+  <body>
+    <ul>
+      <li>lvl 1</li>
+      <li class="hovering">
+        lvl 1
+        <ul class="inside">
+          <li>lvl 2</li>
+          <li>lvl 2</li>
+        </ul>
+      </li>
+      <li>lvl 1</li>
+    </ul>
+  </body>
+</html>

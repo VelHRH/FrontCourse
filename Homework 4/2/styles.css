@@ -1,0 +1,20 @@
+.one {
+  background-color: red;
+  width: 80%;
+}
+.two {
+  float: right;
+  width: 20%;
+  background-color: green;
+}
+.three {
+  width: 20%;
+  background-color: green;
+  float: left;
+}
+
+.four {
+  float: right;
+  background-color: red;
+  width: 80%;
+}
