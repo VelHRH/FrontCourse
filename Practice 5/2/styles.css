@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  font-size: 40px;
+}
+.container {
+  display: flex;
+  border: 3px solid black;
+  height: 300px;
+}
+.container div {
+  border: 3px solid black;
+  margin: 10px;
+}
+
+.one {
+  align-self: flex-end;
+}
+
+.two {
+  align-self: center;
+}
+
+.three {
+  align-self: flex-start;
+}
+
+.four {
+  align-self: center;
+}
+
+.five {
+  align-self: flex-end;
+}
