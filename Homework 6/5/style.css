@@ -1,0 +1,52 @@
+.header {
+ background: url(https://media.bleacherreport.com/image/upload/c_fill,g_faces,w_3800,h_2000,q_95/v1665287215/p8zebipq4zq1fca4bqeq.jpg)
+  center/cover fixed;
+ height: 100vh;
+}
+
+.overlay {
+ background: rgba(0, 0, 0, 0.5);
+}
+
+.headerContent {
+ color: aliceblue;
+ position: absolute;
+ top: 35%;
+ min-width: 100%;
+}
+.headerContent h1 {
+ font-size: 100px;
+}
+
+.headerContent h3 {
+ font-size: 40px;
+ margin-top: 20px;
+}
+
+.about,
+.wrestlers {
+ background: rgba(0, 0, 0, 1);
+ color: aliceblue;
+ padding-top: 5em;
+ padding-bottom: 5em;
+}
+
+.about h1,
+.wrestlers h1 {
+ font-size: 50px;
+ padding-bottom: 1em;
+}
+
+.row div p {
+ text-align: justify;
+}
+
+.about * {
+ padding: 20px;
+ padding-top: 0;
+ padding-bottom: 0;
+}
+
+.btn-outline-danger {
+ width: 100%;
+}
