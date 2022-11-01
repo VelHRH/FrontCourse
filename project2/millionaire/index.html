@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./dist/output.css" />
+  <title>Millionaire</title>
+ </head>
+ <body>
+  <div
+   class="bg-gradient-to-r from-violet-500 to-violet-900 w-full h-screen flex flex-col"
+  >
+   <div class="h-1/2 w-full flex">
+    <div class="h-full w-1/6 flex flex-col">
+     <div class="w-full h-1/3 p-5">
+      <div
+       class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
+      >
+       50/50
+      </div>
+     </div>
+     <div class="w-full h-1/3 p-5">
+      <div
+       class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
+      >
+       Друг
+      </div>
+     </div>
+     <div class="w-full h-1/3 p-5">
+      <div
+       class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
+      >
+       Помилка
+      </div>
+     </div>
+    </div>
+    <div class="h-full w-2/3 flex flex-col">
+     <div class="h-1/2 text-slate-50 text-9xl w-full text-center">
+      Мільйонер
+     </div>
+     <div class="w-full h-1/2 p-5">
+      <div
+       id="question"
+       class="text-yellow-300 w-full h-full text-center text-2xl font-semibold"
+      ></div>
+     </div>
+    </div>
+    <div class="h-full w-1/6 flex flex-col font-bold">
+     <div class="w-full h-1/3 p-5 flex text-slate-50 text-4xl text-center">
+      Питання: 
+      <div id = "qNumber" class="w-full h-full ml-2"></div>
+     </div>
+     <div class="w-full h-1/3 p-5 flex text-slate-50 text-2xl text-center">
+      Сума: 
+      <div id="qSum" class="w-full h-full ml-2"></div>
+     </div>
+     <div class="w-full h-1/3 p-5 flex">
+      <button id="NObtn"
+       class="w-1/2 h-full rounded-lg text-3xl bg-slate-500 px-2 text-center font-semibold text-slate-50"
+      >
+       Завершити
+      </button>
+      <button id="YESbtn"
+       class="w-1/2 h-full rounded-lg text-3xl bg-slate-500 px-2 text-center font-semibold text-slate-50 hover:bg-green-500"
+      >
+       Продовжити
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="h-1/2 w-full flex flex-wrap font-bold">
+    <div class="w-1/2 h-1/2 p-5">
+     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer ">
+      <div class="text-6xl">A) </div>
+      <div id="qA" class="text-6xl"></div>
+     </div>
+    </div>
+    <div class="w-1/2 h-1/2 p-5">
+     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
+      <div class="text-6xl">B) </div>
+      <div id="qB" class="text-6xl"></div>
+     </div>
+    </div>
+    <div class="w-1/2 h-1/2 p-5">
+     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
+      <div class="text-6xl">C) </div>
+      <div id="qC" class="text-6xl"></div>
+     </div>
+    </div>
+    <div class="w-1/2 h-1/2 p-5">
+     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
+      <div class="text-6xl">D) </div>
+      <div id="qD" class="text-6xl hover:bg-slate-500"></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+ <script type="module" src="./src/game.js">
+ </script>
+</html>
