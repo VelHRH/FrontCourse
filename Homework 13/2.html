@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" href="index.css" />
+ </head>
+
+ <body>
+  <h2>Сповіщення знаходиться праворуч</h2>
+
+  <p>
+   Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum id vel iusto
+   assumenda. Iure tenetur, asperiores molestias porro consequatur deleniti
+   minima dolorem magnam? Corrupti tempore suscipit est repellat. Laudantium
+   praesentium porro commodi perspiciatis error dolore optio, officia nemo iure
+   distinctio.
+  </p>
+
+  <script>
+   function showNotification({ top = 0, right = 0, html, className }) {
+    let notification = document.createElement("div");
+    notification.className = "notification";
+    notification.style.background = "orange";
+    notification.style.display = "inline-block";
+    notification.style.position = "absolute";
+    notification.style.top = top + "px";
+    notification.style.right = right + "px";
+    notification.innerHTML = html;
+    document.body.append(notification);
+    setTimeout(() => notification.remove(), 1500);
+   }
+
+   showNotification({
+    top: 10,
+    right: 10,
+    html: "Hello!",
+    className: "welcome",
+   });
+  </script>
+ </body>
+</html>
