@@ -14,21 +14,24 @@
    <div class="h-1/2 w-full flex">
     <div class="h-full w-1/6 flex flex-col">
      <div class="w-full h-1/3 p-5">
-      <div id="help50"
+      <div
+       id="help50"
        class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
       >
        50/50
       </div>
      </div>
      <div class="w-full h-1/3 p-5">
-      <div id="helpFriend"
+      <div
+       id="helpFriend"
        class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
       >
        Друг
       </div>
      </div>
      <div class="w-full h-1/3 p-5">
-      <div id="helpMistake"
+      <div
+       id="helpMistake"
        class="text-slate-50 w-full h-full text-4xl font-bold text-center cursor-pointer hover:text-slate-300"
       >
        Помилка
@@ -48,20 +51,22 @@
     </div>
     <div class="h-full w-1/6 flex flex-col font-bold">
      <div class="w-full h-1/3 p-5 flex text-slate-50 text-4xl text-center">
-      Питання: 
-      <div id = "qNumber" class="w-full h-full ml-2"></div>
+      Питання:
+      <div id="qNumber" class="w-full h-full ml-2"></div>
      </div>
      <div class="w-full h-1/3 p-5 flex text-slate-50 text-2xl text-center">
-      Сума: 
+      Сума:
       <div id="qSum" class="w-full h-full ml-2"></div>
      </div>
      <div class="w-full h-1/3 p-5 flex">
-      <button id="NObtn"
+      <button
+       id="NObtn"
        class="w-1/2 h-full rounded-lg text-3xl bg-slate-500 px-2 text-center font-semibold text-slate-50"
       >
        Завершити
       </button>
-      <button id="YESbtn"
+      <button
+       id="YESbtn"
        class="w-1/2 h-full rounded-lg text-3xl bg-slate-500 px-2 text-center font-semibold text-slate-50 hover:bg-green-500"
       >
        Продовжити
@@ -71,32 +76,65 @@
    </div>
    <div class="h-1/2 w-full flex flex-wrap font-bold">
     <div class="w-1/2 h-1/2 p-5">
-     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer ">
-      <div class="text-6xl">A) </div>
+     <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
+      <div class="text-6xl">A)</div>
       <div id="qA" class="text-6xl"></div>
      </div>
     </div>
     <div class="w-1/2 h-1/2 p-5">
      <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
-      <div class="text-6xl">B) </div>
+      <div class="text-6xl">B)</div>
       <div id="qB" class="text-6xl"></div>
      </div>
     </div>
     <div class="w-1/2 h-1/2 p-5">
      <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
-      <div class="text-6xl">C) </div>
+      <div class="text-6xl">C)</div>
       <div id="qC" class="text-6xl"></div>
      </div>
     </div>
     <div class="w-1/2 h-1/2 p-5">
      <div class="text-slate-50 w-full h-full flex items-center cursor-pointer">
-      <div class="text-6xl">D) </div>
+      <div class="text-6xl">D)</div>
       <div id="qD" class="text-6xl hover:bg-slate-500"></div>
      </div>
     </div>
    </div>
   </div>
+
+  <div id="calculator">
+   <div
+    id="screen"
+    style="
+     background-color: aquamarine;
+     color: black;
+     text-align: right;
+     height: 100px;
+     overflow: scroll;
+     overflow-y: hidden;
+    "
+   ></div>
+   <div id="btn7">7</div>
+   <div id="btn8">8</div>
+   <div id="btn9">9</div>
+   <div id="btnDiv">/</div>
+   <div id="btnCE">CE</div>
+   <div id="btn4">4</div>
+   <div id="btn5">5</div>
+   <div id="btn6">6</div>
+   <div id="btnMod">%</div>
+   <div id="btnC">C</div>
+   <div id="btn1">1</div>
+   <div id="btn2">2</div>
+   <div id="btn3">3</div>
+   <div id="btnMinus">-</div>
+   <div id="btnMult">*</div>
+   <div id="btn0">0</div>
+   <div id="btnDot">.</div>
+   <div id="btnPlus">+</div>
+   <div id="btnIs">=</div>
+  </div>
  </body>
- <script type="module" src="./src/game.js">
- </script>
+ <script type="module" src="./src/game.js"></script>
+ <script type="module" src="./src/calculator.js"></script>
 </html>
