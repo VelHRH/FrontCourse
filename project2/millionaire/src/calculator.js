@@ -79,7 +79,7 @@ btnIs.onclick = function (){
   if (screen.innerText.indexOf("%")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("%"));
     n2 = screen.innerText.substring(screen.innerText.indexOf("%")+1);
-    screen.innerText = parseFloat(n1) % parseFloat(n2);
+    screen.innerText = parseFloat(n1) * parseFloat(n2) / 100;
   }
   if (screen.innerText.indexOf("*")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("*"));

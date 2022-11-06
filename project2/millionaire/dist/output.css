@@ -831,3 +831,37 @@ video {
 #btn0 {
  grid-column: span 2 / span 2;
 }
+
+#randomizer {
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 100px;
+ width: 80%;
+ font-size: 25px;
+ font-weight: bold;
+ color: green;
+}
+
+#randomizer input {
+ border: 2px green solid;
+ width: 70px;
+ height: 50px;
+ margin-right: 40px;
+}
+
+#OKbtn:hover {
+ color: white;
+ background-color: green;
+}
+
+#randomizer button {
+ border: 2px green solid;
+ width: 70px;
+ height: 50px;
+}
+
+#resRand {
+ font-size: 100px;
+ text-align: center;
+ height: 200px;
+}
