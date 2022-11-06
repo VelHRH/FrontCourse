@@ -1,3 +1,7 @@
+function isEmpty(str) {
+  return !str.trim().length;
+}
+
 function getRandoms() {
   resRand.innerHTML = '';
   let minVal = parseInt(document.getElementById("begN").value);
@@ -9,6 +13,10 @@ function getRandoms() {
   }
   if (numb > maxVal - minVal +1) {
     resRand.innerHTML = "Неправильна кількість";
+    return;
+  }
+  if (isNaN(minVal) || isNaN(maxVal)){
+    resRand.innerHTML = "Введіть числa";
     return;
   }
   let i = 0;
