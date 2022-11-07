@@ -795,6 +795,15 @@ video {
  color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
+#NObtn:hover {
+ background-color: rgb(241, 90, 90);
+}
+
+#question {
+ background: #4e2e98;
+ border-radius: 30px;
+}
+
 #screen {
  grid-column: span 5 / span 5;
 }
@@ -835,7 +844,7 @@ video {
 #randomizer {
  margin-left: auto;
  margin-right: auto;
- margin-top: 100px;
+ margin-top: 200px;
  width: 80%;
  font-size: 25px;
  font-weight: bold;

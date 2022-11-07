@@ -21,6 +21,48 @@ export const EASY_QUESTIONS = [
     ]
   },
   {
+    text: 'Яке ім`я було у "напарника" Шерлока Холмса?',
+    options: [
+      {
+        text: "собака Баскервілів",
+        isTrue: false
+      },
+      {
+        text: "Артур Конан Дойл",
+        isTrue: false
+      },
+      {
+        text: "доктор Ватсон",
+        isTrue: true
+      },
+      {
+        text: "Місіс Хадсон",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: 'Найпопулярніша гра з м`ячем',
+    options: [
+      {
+        text: "Баскетбол",
+        isTrue: false
+      },
+      {
+        text: "Теніс",
+        isTrue: false
+      },
+      {
+        text: "Футбол",
+        isTrue: true
+      },
+      {
+        text: "Гандбол",
+        isTrue: false
+      }
+    ]
+  },
+  {
     text: "Як називається портрет, написаний з самого себе?",
     options: [
       {

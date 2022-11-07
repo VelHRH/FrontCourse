@@ -32,6 +32,9 @@ function shuffle(array) {
 shuffle(EASY_QUESTIONS);
 shuffle(MEDIUM_QUESTIONS);
 shuffle(HARD_QUESTIONS);
+let slicedEASY_QUESTIONS = EASY_QUESTIONS.slice(0, 5);
+let slicedMEDIUM_QUESTIONS = MEDIUM_QUESTIONS.slice(0, 5);
+let slicedHARD_QUESTIONS = HARD_QUESTIONS.slice(0, 5);
 
 const getRandomInt = (max) => {
  return Math.floor(Math.random() * max);
@@ -74,25 +77,25 @@ const update = () => {
  i++;
  qNumber.innerText = i + 1;
  if (i < 5) {
-  question.innerText = EASY_QUESTIONS[i].text;
-  qA.innerText = EASY_QUESTIONS[i].options[0].text;
-  qB.innerText = EASY_QUESTIONS[i].options[1].text;
-  qC.innerText = EASY_QUESTIONS[i].options[2].text;
-  qD.innerText = EASY_QUESTIONS[i].options[3].text;
+  question.innerText = slicedEASY_QUESTIONS[i].text;
+  qA.innerText = slicedEASY_QUESTIONS[i].options[0].text;
+  qB.innerText = slicedEASY_QUESTIONS[i].options[1].text;
+  qC.innerText = slicedEASY_QUESTIONS[i].options[2].text;
+  qD.innerText = slicedEASY_QUESTIONS[i].options[3].text;
  }
  if (i > 4 && i < 10) {
-  question.innerText = MEDIUM_QUESTIONS[(i+1) % 5].text;
-  qA.innerText = MEDIUM_QUESTIONS[(i+1) % 5].options[0].text;
-  qB.innerText = MEDIUM_QUESTIONS[(i+1) % 5].options[1].text;
-  qC.innerText = MEDIUM_QUESTIONS[(i+1) % 5].options[2].text;
-  qD.innerText = MEDIUM_QUESTIONS[(i+1) % 5].options[3].text;
+  question.innerText = slicedMEDIUM_QUESTIONS[(i+1) % 5].text;
+  qA.innerText = slicedMEDIUM_QUESTIONS[(i+1) % 5].options[0].text;
+  qB.innerText = slicedMEDIUM_QUESTIONS[(i+1) % 5].options[1].text;
+  qC.innerText = slicedMEDIUM_QUESTIONS[(i+1) % 5].options[2].text;
+  qD.innerText = slicedMEDIUM_QUESTIONS[(i+1) % 5].options[3].text;
  }
  if (i > 9 && i < 15) {
-  question.innerText = HARD_QUESTIONS[i % 10].text;
-  qA.innerText = HARD_QUESTIONS[i % 10].options[0].text;
-  qB.innerText = HARD_QUESTIONS[i % 10].options[1].text;
-  qC.innerText = HARD_QUESTIONS[i % 10].options[2].text;
-  qD.innerText = HARD_QUESTIONS[i % 10].options[3].text;
+  question.innerText = slicedHARD_QUESTIONS[i % 10].text;
+  qA.innerText = slicedHARD_QUESTIONS[i % 10].options[0].text;
+  qB.innerText = slicedHARD_QUESTIONS[i % 10].options[1].text;
+  qC.innerText = slicedHARD_QUESTIONS[i % 10].options[2].text;
+  qD.innerText = slicedHARD_QUESTIONS[i % 10].options[3].text;
  }
  contMode = 0;
 }
@@ -102,6 +105,7 @@ const isContinue = () => {
   contMode++;
  sumAmountCounter();
  if (i == 14) {
+  qSum.innerText = 3000000;
   alert("Вітаємо! Ви виграли " + amount);
   document.location.reload();
  }
@@ -128,7 +132,7 @@ const gameOverWithWin = () => {
 
 const qAhandler = () => {
  if (i < 5) {
-  if (EASY_QUESTIONS[i].options[0].isTrue) {
+  if (slicedEASY_QUESTIONS[i].options[0].isTrue) {
    qA.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -137,7 +141,7 @@ const qAhandler = () => {
   }
  }
  if (i > 4 && i < 10) {
-  if (MEDIUM_QUESTIONS[(i + 1) % 5].options[0].isTrue) {
+  if (slicedMEDIUM_QUESTIONS[(i + 1) % 5].options[0].isTrue) {
    qA.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -146,7 +150,7 @@ const qAhandler = () => {
   }
  }
  if (i > 9 && i < 15) {
-  if (HARD_QUESTIONS[i % 10].options[0].isTrue) {
+  if (slicedHARD_QUESTIONS[i % 10].options[0].isTrue) {
    qA.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -158,7 +162,7 @@ const qAhandler = () => {
 
 const qBhandler = () => {
  if (i < 5) {
-  if (EASY_QUESTIONS[i].options[1].isTrue) {
+  if (slicedEASY_QUESTIONS[i].options[1].isTrue) {
    qB.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -167,7 +171,7 @@ const qBhandler = () => {
   }
  }
  if (i > 4 && i < 10) {
-  if (MEDIUM_QUESTIONS[(i + 1) % 5].options[1].isTrue) {
+  if (slicedMEDIUM_QUESTIONS[(i + 1) % 5].options[1].isTrue) {
    qB.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -176,7 +180,7 @@ const qBhandler = () => {
   }
  }
  if (i > 9 && i < 15) {
-  if (HARD_QUESTIONS[i % 10].options[1].isTrue) {
+  if (slicedHARD_QUESTIONS[i % 10].options[1].isTrue) {
    qB.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -188,7 +192,7 @@ const qBhandler = () => {
 
 const qChandler = () => {
  if (i < 5) {
-  if (EASY_QUESTIONS[i].options[2].isTrue) {
+  if (slicedEASY_QUESTIONS[i].options[2].isTrue) {
    qC.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -197,7 +201,7 @@ const qChandler = () => {
   }
  }
  if (i > 4 && i < 10) {
-  if (MEDIUM_QUESTIONS[(i + 1) % 5].options[2].isTrue) {
+  if (slicedMEDIUM_QUESTIONS[(i + 1) % 5].options[2].isTrue) {
    qC.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -206,7 +210,7 @@ const qChandler = () => {
   }
  }
  if (i > 9 && i < 15) {
-  if (HARD_QUESTIONS[i % 10].options[2].isTrue) {
+  if (slicedHARD_QUESTIONS[i % 10].options[2].isTrue) {
    qC.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -218,7 +222,7 @@ const qChandler = () => {
 
 const qDhandler = () => {
  if (i < 5) {
-  if (EASY_QUESTIONS[i].options[3].isTrue) {
+  if (slicedEASY_QUESTIONS[i].options[3].isTrue) {
    qD.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -227,7 +231,7 @@ const qDhandler = () => {
   }
  }
  if (i > 4 && i < 10) {
-  if (MEDIUM_QUESTIONS[(i + 1) % 5].options[3].isTrue) {
+  if (slicedMEDIUM_QUESTIONS[(i + 1) % 5].options[3].isTrue) {
    qD.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -236,7 +240,7 @@ const qDhandler = () => {
   }
  }
  if (i > 9 && i < 15) {
-  if (HARD_QUESTIONS[i % 10].options[3].isTrue) {
+  if (slicedHARD_QUESTIONS[i % 10].options[3].isTrue) {
    qD.style.color = "green";
    setTimeout(isContinue, 2000);
   } else {
@@ -251,13 +255,13 @@ const help50handler = () => {
  help50.parentNode.removeChild(help50);
  let QUESTIONS;
  if (i < 5) {
-  QUESTIONS = EASY_QUESTIONS[i];
+  QUESTIONS = slicedEASY_QUESTIONS[i];
  }
  if (i > 4 && i < 10) {
-  QUESTIONS = MEDIUM_QUESTIONS[(i + 1) % 5];
+  QUESTIONS = slicedMEDIUM_QUESTIONS[(i + 1) % 5];
  }
  if (i > 9 && i < 15) {
-  QUESTIONS = HARD_QUESTIONS[i % 10];
+  QUESTIONS = slicedHARD_QUESTIONS[i % 10];
  }
  let count = 0;
  let arr = [];
@@ -289,13 +293,13 @@ const helpMistakehandler = () => {
  helpMistake.parentNode.removeChild(helpMistake);
  let QUESTIONS;
  if (i < 5) {
-  QUESTIONS = EASY_QUESTIONS[i];
+  QUESTIONS = slicedEASY_QUESTIONS[i];
  }
  if (i > 4 && i < 10) {
-  QUESTIONS = MEDIUM_QUESTIONS[(i + 1) % 5];
+  QUESTIONS = slicedMEDIUM_QUESTIONS[(i + 1) % 5];
  }
  if (i > 9 && i < 15) {
-  QUESTIONS = HARD_QUESTIONS[i % 10];
+  QUESTIONS = slicedHARD_QUESTIONS[i % 10];
  }
 
  qA.onclick = function () {
