@@ -76,6 +76,10 @@ btnCE.onclick = function () {
 btnIs.onclick = function (){
   action=0;
   let n1, n2;
+  if (screen.innerText.indexOf("..") != -1 || screen.innerText.indexOf(".*") != -1 || screen.innerText.indexOf("*.") != -1 || screen.innerText.indexOf(".+") != -1 || screen.innerText.indexOf("+.") != -1 || screen.innerText.indexOf("-.") != -1 || screen.innerText.indexOf(".-") != -1 || screen.innerText.indexOf("/.") != -1 || screen.innerText.indexOf("./") != -1 || screen.innerText.indexOf("%.") != -1 || screen.innerText.indexOf(".%") != -1){
+    screen.innerText = "err";
+    return;
+  }
   if (screen.innerText.indexOf("%")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("%"));
     n2 = screen.innerText.substring(screen.innerText.indexOf("%")+1);
@@ -84,12 +88,26 @@ btnIs.onclick = function (){
   if (screen.innerText.indexOf("*")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("*"));
     n2 = screen.innerText.substring(screen.innerText.indexOf("*")+1);
-    screen.innerText = parseFloat(n1) * parseFloat(n2);
+    if ((n1.indexOf(".")!=-1) && n2.indexOf(".")!=-1){
+      let count1 = (n1.length - n1.indexOf(".")) + (n2.length - n2.indexOf(".") -2);
+      screen.innerText = (parseFloat(n1) * parseFloat(n2)).toFixed(count1);
+    }
+    else{
+      screen.innerText = parseFloat(n1) * parseFloat(n2);
+    }
+    
   }
   if (screen.innerText.indexOf("+")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("+"));
     n2 = screen.innerText.substring(screen.innerText.indexOf("+")+1);
-    screen.innerText = parseFloat(n1) + parseFloat(n2);
+    if ((n1.indexOf(".")!=-1) && n2.indexOf(".")!=-1){
+      let count1 = (n1.length - n1.indexOf(".") - 1);
+      screen.innerText = (parseFloat(n1) * parseFloat(n2)).toFixed(count1);
+    }
+    else{
+      screen.innerText = parseFloat(n1) * parseFloat(n2);
+    }
+    screen.innerText = ((parseFloat(n1)*10) + (parseFloat(n2)*10))/10;
   }
   if (screen.innerText.indexOf("-")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("-"));
@@ -99,6 +117,11 @@ btnIs.onclick = function (){
   if (screen.innerText.indexOf("/")!=-1){
     n1 = screen.innerText.substring(0, screen.innerText.indexOf("/"));
     n2 = screen.innerText.substring(screen.innerText.indexOf("/")+1);
-    screen.innerText = parseFloat(n1) / parseFloat(n2);
+    if (n2=="0"){
+      screen.innerText = "err"
+    }
+    else{
+      screen.innerText = parseFloat(n1) / parseFloat(n2);
+    }
   }
 }

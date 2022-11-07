@@ -281,11 +281,25 @@ const help50handler = () => {
 const helpFriendhandler = () => {
  helpFriend.style.transition = "1s";
  helpFriend.parentNode.removeChild(helpFriend);
- let k = getRandomInt(4);
- if (k == 0) qA.style.color = "yellow";
- if (k == 1) qB.style.color = "yellow";
- if (k == 2) qC.style.color = "yellow";
- if (k == 3) qD.style.color = "yellow";
+ while (true) {
+  let k = getRandomInt(4);
+  if ((k == 0) && (qA.style.color != "transparent")) {
+    qA.style.color = "yellow";
+    break;
+  }
+  if ((k == 1) && (qB.style.color != "transparent")) {
+    qB.style.color = "yellow";
+    break;
+  }
+  if ((k == 2) && (qC.style.color != "transparent")){
+    qC.style.color = "yellow";
+    break;
+  }
+  if ((k == 3) && (qD.style.color != "transparent")){
+    qD.style.color = "yellow";
+    break;
+  }
+ }
 };
 
 const helpMistakehandler = () => {

@@ -849,6 +849,7 @@ video {
  font-size: 25px;
  font-weight: bold;
  color: green;
+ height: 100vh;
 }
 
 #randomizer input {
@@ -872,5 +873,6 @@ video {
 #resRand {
  font-size: 100px;
  text-align: center;
- height: 200px;
+ height: 500px;
+ margin-top: 20px;
 }

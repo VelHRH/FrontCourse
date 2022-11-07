@@ -3,20 +3,26 @@ function isEmpty(str) {
 }
 
 function getRandoms() {
-  resRand.innerHTML = '';
-  let minVal = parseInt(document.getElementById("begN").value);
-  let maxVal = parseInt(document.getElementById("endN").value);
-  let numb = parseInt(document.getElementById("numb").value);
+  resRand.value = '';
+  let minVal = parseFloat(document.getElementById("begN").value);
+  minVal = Math.ceil(minVal);
+  let maxVal = parseFloat(document.getElementById("endN").value);
+  maxVal = Math.floor(maxVal);
+  let numb = parseFloat(document.getElementById("numb").value);
   if (minVal > maxVal) {
-    resRand.innerHTML = "Мінімальне значення більше максимального";
+    resRand.value = "Мінімальне значення більше максимального";
     return;
   }
   if (numb > maxVal - minVal +1) {
-    resRand.innerHTML = "Неправильна кількість";
+    resRand.value = "Неправильна кількість";
     return;
   }
   if (isNaN(minVal) || isNaN(maxVal)){
-    resRand.innerHTML = "Введіть числa";
+    resRand.value = "Введіть числa";
+    return;
+  }
+  if (numb<1){
+    resRand.value = "Кількість чисел повинна бути додатньою";
     return;
   }
   let i = 0;
@@ -37,7 +43,7 @@ function getRandoms() {
   }
 
   for (let j = 0; j<resArr.length; j++){
-    resRand.innerHTML += `${resArr[j]}<br />`;
+    resRand.value += `${resArr[j]}  `;
   }
 }
 
