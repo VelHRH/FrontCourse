@@ -316,7 +316,7 @@ const helpMistakehandler = () => {
   QUESTIONS = slicedHARD_QUESTIONS[i % 10];
  }
 
- qA.onclick = function () {
+ qAcont.onclick = function () {
   if (counMistake == 0) {
    counMistake++;
    if (QUESTIONS.options[0].isTrue) {
@@ -329,7 +329,7 @@ const helpMistakehandler = () => {
    qAhandler();
   }
  };
- qB.onclick = function () {
+ qBcont.onclick = function () {
   if (counMistake == 0) {
    counMistake++;
    if (QUESTIONS.options[1].isTrue) {
@@ -342,7 +342,7 @@ const helpMistakehandler = () => {
    qBhandler();
   }
  };
- qC.onclick = function () {
+ qCcont.onclick = function () {
   if (counMistake == 0) {
    counMistake++;
    if (QUESTIONS.options[2].isTrue) {
@@ -355,7 +355,7 @@ const helpMistakehandler = () => {
    qChandler();
   }
  };
- qD.onclick = function () {
+ qDcont.onclick = function () {
   if (counMistake == 0) {
    counMistake++;
    if (QUESTIONS.options[3].isTrue) {
@@ -371,10 +371,10 @@ const helpMistakehandler = () => {
 };
 
 update();
-qA.onclick = qAhandler;
-qB.onclick = qBhandler;
-qC.onclick = qChandler;
-qD.onclick = qDhandler;
+qAcont.onclick = qAhandler;
+qBcont.onclick = qBhandler;
+qCcont.onclick = qChandler;
+qDcont.onclick = qDhandler;
 help50.onclick = help50handler;
 helpFriend.onclick = helpFriendhandler;
 helpMistake.onclick = helpMistakehandler;

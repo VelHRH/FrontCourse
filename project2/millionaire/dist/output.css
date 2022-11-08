@@ -17,6 +17,7 @@
  border-style: solid;
  /* 2 */
  border-color: #e5e7eb;
+ transition: 0.3s;
  /* 2 */
 }
 
@@ -798,10 +799,50 @@ video {
 #NObtn:hover {
  background-color: rgb(241, 90, 90);
 }
+#help50 {
+ background-color: #a78bfa;
+ border-radius: 20px;
+ margin: 5px;
+ font-size: 40px;
+}
+#help50:hover {
+ background-color: transparent;
+}
 
-#question {
- background: #4e2e98;
+#helpFriend {
+ background-color: #a78bfa;
+ border-radius: 20px;
+ margin: 5px;
+ font-size: 40px;
+}
+#helpFriend:hover {
+ background-color: transparent;
+}
+
+#helpMistake {
+ background-color: #a78bfa;
+ border-radius: 20px;
+ margin: 5px;
+ font-size: 40px;
+}
+#helpMistake:hover {
+ background-color: transparent;
+}
+
+#qDcont,
+#qAcont,
+#qBcont,
+#qCcont {
+ background-color: #a78bfa;
  border-radius: 30px;
+ padding-left: 10px;
+}
+
+#qDcont:hover,
+#qAcont:hover,
+#qBcont:hover,
+#qCcont:hover {
+ background-color: transparent;
 }
 
 #screen {
