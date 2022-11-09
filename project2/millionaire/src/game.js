@@ -15,6 +15,24 @@ qB.style.transition = "1s";
 qD.style.transition = "1s";
 qC.style.transition = "1s";
 
+let cc=0;
+function pop(text, color, amount){
+  if (cc==0){
+    popBox.style.display = "block";
+    document.querySelector(".popLayer").style.display = "block";
+    popBox.style.background = color;
+    popText.innerText = text + amount;
+    cc=1;
+  }else{
+    popBox.style.display = "none";
+    document.querySelector(".popLayer").style.display = "none";
+    cc=0;
+    document.location.reload();
+  }
+}
+
+closeBtn.onclick = pop;
+
 function shuffle(array) {
  let currentIndex = array.length,
   randomIndex;
@@ -106,8 +124,7 @@ const isContinue = () => {
  sumAmountCounter();
  if (i == 14) {
   qSum.innerText = 3000000;
-  alert("Вітаємо! Ви виграли " + amount);
-  document.location.reload();
+  pop ("Вітаємо! Ви виграли ", "#a9faac", amount);
  }
  question.innerText = "Чи бажаете завершити гру?";
  qA.innerText = "";
@@ -119,14 +136,12 @@ const isContinue = () => {
 };
 
 const gameOver = () => {
-  alert("Кінець гри. Ваш виграш = " + amount);
-  document.location.reload();
+  pop ("Кінець гри. Ваш виграш = ", "#fbb0b0", amount);
 };
 
 const gameOverWithWin = () => {
   if(contMode!=0){
-    alert("Ваш виграш = " + sum);
-    document.location.reload();
+    pop ("Ваш виграш = ", "#a9faac", sum);
   }
 };
 

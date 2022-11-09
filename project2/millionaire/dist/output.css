@@ -796,6 +796,46 @@ video {
  color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
+#popBox {
+ position: absolute;
+ width: 500px;
+ background-color: white;
+ box-shadow: 0 0 20px black;
+ border-radius: 20px;
+ font-size: 30px;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+ padding: 20px;
+ font-weight: 600;
+ display: none;
+}
+
+#closeBtn {
+ margin-top: 30px;
+ background-color: #4c1d95;
+ border: #4c1d95 5px solid;
+ padding-right: 20px;
+ padding-left: 20px;
+ color: white;
+ border-radius: 10px;
+}
+.popLayer {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ background-color: transparent;
+ display: none;
+}
+
+#closeBtn:hover {
+ background-color: transparent;
+ color: #4c1d95;
+}
+
 #NObtn:hover {
  background-color: rgb(241, 90, 90);
 }
@@ -883,8 +923,8 @@ video {
 }
 
 #randomizer {
- margin-left: auto;
- margin-right: auto;
+ margin-left: 50%;
+ transform: translate(-50%);
  margin-top: 200px;
  width: 80%;
  font-size: 25px;
@@ -911,9 +951,16 @@ video {
  height: 50px;
 }
 
+.inputArea {
+ margin-left: 50%;
+ transform: translate(-50%);
+ width: 94%;
+}
+
 #resRand {
  font-size: 100px;
  text-align: center;
  height: 500px;
  margin-top: 20px;
+ width: 100%;
 }

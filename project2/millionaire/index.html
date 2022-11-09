@@ -8,6 +8,11 @@
   <title>Millionaire</title>
  </head>
  <body>
+  <div class="popLayer"></div>
+  <div id="popBox">
+   <div id="popText">Поздравляем!</div>
+   <button id="closeBtn">Закрыть</button>
+  </div>
   <div
    class="bg-gradient-to-r from-violet-500 to-violet-900 w-full h-screen flex flex-col"
   >
@@ -152,16 +157,19 @@
   </div>
 
   <div id="randomizer">
-   <label for="begN">Початок діапазону:</label>
-   <input type="number" id="begN" />
-   <label for="endN">Кінець діапазону:</label>
-   <input type="number" id="endN" />
-   <label for="numb">Кількість чисел:</label>
-   <input type="number" id="numb" value="1" min="1" />
-   <input type="button" id="OKbtn" value="OK" />
-   <textarea id="resRand" style="width: 90%"></textarea>
+   <div class="inputArea">
+    <label for="begN">Початок діапазону:</label>
+    <input type="number" id="begN" />
+    <label for="endN">Кінець діапазону:</label>
+    <input type="number" id="endN" />
+    <label for="numb">Кількість чисел:</label>
+    <input type="number" id="numb" value="1" min="1" />
+    <input type="button" id="OKbtn" value="OK" />
+   </div>
+   <textarea id="resRand"></textarea>
   </div>
  </body>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <script type="module" src="./src/game.js"></script>
  <script type="module" src="./src/calculator.js"></script>
  <script type="module" src="./src/random.js"></script>
