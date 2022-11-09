@@ -825,8 +825,8 @@ video {
  position: absolute;
  top: 0;
  left: 0;
- width: 100vw;
- height: 100vh;
+ width: 100%;
+ height: 100%;
  background-color: transparent;
  display: none;
 }
@@ -869,19 +869,13 @@ video {
  background-color: transparent;
 }
 
-#qDcont,
-#qAcont,
-#qBcont,
-#qCcont {
+.hoverClass1 {
  background-color: #a78bfa;
  border-radius: 30px;
  padding-left: 10px;
 }
 
-#qDcont:hover,
-#qAcont:hover,
-#qBcont:hover,
-#qCcont:hover {
+.hoverClass1:hover {
  background-color: transparent;
 }
 

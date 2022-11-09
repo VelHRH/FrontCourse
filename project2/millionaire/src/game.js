@@ -33,6 +33,22 @@ function pop(text, color, amount){
 
 closeBtn.onclick = pop;
 
+function clickable(){
+
+  document.getElementById("qAcont").style.pointerEvents="auto";
+  document.getElementById("qBcont").style.pointerEvents="auto";
+  document.getElementById("qCcont").style.pointerEvents="auto";
+  document.getElementById("qDcont").style.pointerEvents="auto";
+}
+
+function unclickable(){
+
+  document.getElementById("qAcont").style.pointerEvents="none";
+  document.getElementById("qBcont").style.pointerEvents="none";
+  document.getElementById("qCcont").style.pointerEvents="none";
+  document.getElementById("qDcont").style.pointerEvents="none";
+}
+
 function shuffle(array) {
  let currentIndex = array.length,
   randomIndex;
@@ -87,6 +103,7 @@ const sumAmountCounter = () => {
 };
 
 const update = () => {
+  clickable();
  qA.style.color = "white";
  qB.style.color = "white";
  qC.style.color = "white";
@@ -120,6 +137,7 @@ const update = () => {
 };
 
 const isContinue = () => {
+  unclickable();
   contMode++;
  sumAmountCounter();
  if (i == 14) {
