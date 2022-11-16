@@ -1,0 +1,1 @@
+Команда "npx create-react-app ."
