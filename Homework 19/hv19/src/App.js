@@ -2,9 +2,10 @@ import {
  ChevronDoubleLeftIcon,
  ChevronDoubleRightIcon,
  SunIcon,
+ MoonIcon,
 } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import { Form1 } from "./components/Form1";
 import { Form2 } from "./components/Form2";
 import { Form3 } from "./components/Form3";
@@ -63,7 +64,7 @@ function App() {
       : "text-slate-900 bg-slate-50 hover:bg-slate-200"
     } absolute left-5 top-5 rounded-xl`}
    >
-    <SunIcon className="w-7" />
+    {theme ? <MoonIcon className="w-7" /> : <SunIcon className="w-7" />}
    </button>
    <CSSTransition
     in={page === 1}
