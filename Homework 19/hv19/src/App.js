@@ -1,15 +1,31 @@
 import {
  ChevronDoubleLeftIcon,
  ChevronDoubleRightIcon,
+ SunIcon,
 } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Form1 } from "./components/Form1";
+import { Form2 } from "./components/Form2";
+import { Form3 } from "./components/Form3";
+import { Form4 } from "./components/Form4";
+import { Form5 } from "./components/Form5";
 import "./index.css";
 
 function App() {
  const [page, setPage] = useState(1);
  const [showbtn, setShowbtn] = useState(true);
  const [direction, setDirection] = useState(true);
+ const [password, setPassword] = useState("");
+ const [login, setLogin] = useState("");
+ const [name, setName] = useState("");
+ const [surname, setSurname] = useState("");
+ const [patronymic, setPatronymic] = useState("");
+ const [age, setAge] = useState(0);
+ const [country, setCountry] = useState("");
+ const [gender, setGender] = useState("");
+ const [theme, setTheme] = useState(true);
+ const [isValidation, setIsValidation] = useState(false);
 
  const btnLeftClickhandle = () => {
   setPage(page - 1);
@@ -29,32 +45,40 @@ function App() {
   }, 300);
  };
 
+ const submitHandle = () => {
+  setIsValidation(true);
+ };
+
  return (
-  <>
+  <div
+   className={`${
+    theme ? "bg-slate-50" : "bg-slate-700"
+   } w-screen h-screen pt-10`}
+  >
+   <button
+    onClick={() => setTheme(!theme)}
+    className={`p-2 ${
+     theme
+      ? "text-white bg-slate-900 hover:bg-slate-700"
+      : "text-slate-900 bg-slate-50 hover:bg-slate-200"
+    } absolute left-5 top-5 rounded-xl`}
+   >
+    <SunIcon className="w-7" />
+   </button>
    <CSSTransition
     in={page === 1}
     timeout={300}
     classNames={direction ? "left" : "right"}
     unmountOnExit
    >
-    <div
-     className={`w-[90%] md:w-1/3 bg-lime-500 p-3 flex flex-col mb-2 rounded-2xl ml-[50%] translate-x-[-50%] text-xl font-semibold items-center`}
-    >
-     <div className="text-slate-50 w-[90%] mr-2 self-left pl-2 pb-1 mt-2">
-      Пароль
-     </div>
-     <input
-      type="text"
-      className="w-[90%] rounded-xl focus:outline-lime-700 p-2 mb-3"
-     ></input>
-     <div className="text-slate-50 w-[90%] mr-2 self-left pl-2 pb-1 mt-2">
-      Пароль
-     </div>
-     <input
-      type="text"
-      className="w-[90%] rounded-xl focus:outline-lime-700 p-2 mb-3"
-     ></input>
-    </div>
+    <Form1
+     login={login}
+     theme={theme}
+     setLogin={setLogin}
+     password={password}
+     setPassword={setPassword}
+     isValidation={isValidation}
+    />
    </CSSTransition>
    <CSSTransition
     in={page === 2}
@@ -62,31 +86,57 @@ function App() {
     classNames={direction ? "left" : "right"}
     unmountOnExit
    >
-    <div
-     className={`w-[90%] md:w-1/3 bg-lime-500 p-3 flex flex-col mb-2 rounded-2xl ml-[50%] translate-x-[-50%] text-xl font-semibold items-center`}
-    >
-     <div className="text-slate-50 w-[90%] mr-2 self-left pl-2 pb-1 mt-2">
-      Имя
-     </div>
-     <input
-      type="text"
-      className="w-[90%] rounded-xl focus:outline-lime-700 p-2 mb-3"
-     ></input>
-     <div className="text-slate-50 w-[90%] mr-2 self-left pl-2 pb-1 mt-2">
-      Фамилия
-     </div>
-     <input
-      type="text"
-      className="w-[90%] rounded-xl focus:outline-lime-700 p-2 mb-3"
-     ></input>
-     <div className="text-slate-50 w-[90%] mr-2 self-left pl-2 pb-1 mt-2">
-      Отчество
-     </div>
-     <input
-      type="text"
-      className="w-[90%] rounded-xl focus:outline-lime-700 p-2 mb-3"
-     ></input>
-    </div>
+    <Form2
+     name={name}
+     setName={setName}
+     surname={surname}
+     setSurname={setSurname}
+     patronymic={patronymic}
+     setPatronymic={setPatronymic}
+     theme={theme}
+     isValidation={isValidation}
+    />
+   </CSSTransition>
+   <CSSTransition
+    in={page === 3}
+    timeout={300}
+    classNames={direction ? "left" : "right"}
+    unmountOnExit
+   >
+    <Form3
+     age={age}
+     setAge={setAge}
+     theme={theme}
+     isValidation={isValidation}
+    />
+   </CSSTransition>
+
+   <CSSTransition
+    in={page === 4}
+    timeout={300}
+    classNames={direction ? "left" : "right"}
+    unmountOnExit
+   >
+    <Form4
+     country={country}
+     setCountry={setCountry}
+     theme={theme}
+     isValidation={isValidation}
+    />
+   </CSSTransition>
+
+   <CSSTransition
+    in={page === 5}
+    timeout={300}
+    classNames={direction ? "left" : "right"}
+    unmountOnExit
+   >
+    <Form5
+     gender={gender}
+     setGender={setGender}
+     theme={theme}
+     isValidation={isValidation}
+    />
    </CSSTransition>
 
    <div className="w-[90%] md:w-1/3 ml-[50%] translate-x-[-50%] flex justify-between">
@@ -98,7 +148,10 @@ function App() {
       page < 2 &&
       "bg-transparent text-transparent border-transparent hover:text-transparent cursor-default"
      } ${!showbtn && "hidden"} ${
-      page >= 2 && "bg-lime-500 text-white border-lime-500 hover:text-lime-500"
+      page >= 2 &&
+      `bg-lime-500 ${
+       theme ? "text-white" : "text-slate-700"
+      } border-lime-500 hover:text-lime-500`
      } p-2 rounded-xl border-2 hover:bg-transparent`}
     >
      <ChevronDoubleLeftIcon className="w-6" />
@@ -106,18 +159,19 @@ function App() {
     <button
      onClick={() => {
       page < 5 && btnRightClickhandle();
+      page === 5 && submitHandle();
      }}
-     className={`${
-      page > 4 &&
-      "bg-transparent text-transparent border-transparent hover:text-transparent cursor-default"
-     } ${!showbtn && "hidden"} ${
-      page <= 4 && "bg-lime-500 text-white border-lime-500 hover:text-lime-500"
-     } text-white p-2 rounded-xl border-2 hover:bg-transparent`}
+     className={`${!showbtn && "hidden"} ${
+      page <= 5 &&
+      `bg-lime-500 ${
+       theme ? "text-white" : "text-slate-700"
+      } border-lime-500 hover:text-lime-500`
+     } text-white p-2 rounded-xl border-2 hover:bg-transparent font-bold`}
     >
-     <ChevronDoubleRightIcon className="w-6" />
+     {page <= 4 ? <ChevronDoubleRightIcon className="w-6" /> : "OK"}
     </button>
    </div>
-  </>
+  </div>
  );
 }
 
