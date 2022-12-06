@@ -1,5 +1,8 @@
 import { useState } from "react";
-import ReactCountryFlag from "react-country-flag";
+import { AmountField } from "./components/Task1/AmountField";
+import { CurField } from "./components/Task1/CurField";
+import { Result } from "./components/Task1/Result";
+import { SwapBtn } from "./components/Task1/SwapBtn";
 //import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 
 function App() {
@@ -10,65 +13,33 @@ function App() {
  const [cur2Full, setCur2Full] = useState("Euro");
  return (
   <>
-   <div className="flex w-[60%] justify-between ml-[50%] translate-x-[-50%] mt-10">
-    <div className="flex flex-col font-semibold text-2xl w-1/4 mr-3">
-     <div className="font-bold">Amount</div>
-     <input
-      type="number"
-      className="rounded-md border-2 border-slate-300 focus:outline-slate-600 text-xl p-2"
-      onChange={(e) => setAmount(e.target.value)}
-      value={amount}
+   <div className="flex w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
+    <AmountField amount={amount} setAmount={setAmount} />
+    <div className="w-2/3 flex justify-between">
+     <CurField
+      label="From"
+      cur={cur1}
+      setCur={setCur1}
+      curFull={cur1Full}
+      setCurFull={setCur1Full}
+     />
+     <SwapBtn />
+     <CurField
+      label="To"
+      cur={cur2}
+      setCur={setCur2}
+      curFull={cur2Full}
+      setCurFull={setCur2Full}
      />
     </div>
-    <div className="flex flex-col font-semibold text-2xl w-1/4 mr-2">
-     <div className="font-bold">From</div>
-     <div
-      className={`flex rounded-md border-2 border-slate-300 text-xl p-2 w-full`}
-     >
-      <ReactCountryFlag
-       countryCode={cur1}
-       svg
-       cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/"
-       cdnSuffix="svg"
-       style={{
-        fontSize: "1.25em",
-        lineHeight: "1.75em",
-       }}
-       className="mr-2"
-      />
-      {`${cur1} - ${cur1Full}`}
-     </div>
-    </div>
-    <button className="rounded-full border-2 border-slate-300 text-xl p-2 w-10 h-[2.75rem] mr-2 self-end hover:bg-slate-200">
-     d
-    </button>
-    <div className="flex flex-col font-semibold text-2xl w-1/4">
-     <div className="font-bold">To</div>
-     <div
-      className={`flex rounded-md border-2 border-slate-300 text-xl p-2 w-full`}
-     >
-      <ReactCountryFlag
-       countryCode={cur2}
-       svg
-       cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/"
-       cdnSuffix="svg"
-       style={{
-        fontSize: "1.25em",
-        lineHeight: "1.75em",
-       }}
-       className="mr-2"
-      />
-      {`${cur2} - ${cur2Full}`}
-     </div>
-    </div>
    </div>
-   <div className="flex flex-col ml-[20%] mt-5">
-    <div className="font-bold text-slate-500 text-lg">
-     {amount} {cur1Full} =
-    </div>
-    <div className="font-bold text-slate-700 text-3xl">
-     {amount * 2} {cur2Full}
-    </div>
+   <Result amount={amount} cur1Full={cur1Full} cur2Full={cur2Full} />
+   <div className="flex flex-col items-start absolute left-[38.3%] top-[8rem] w-[19.44%]">
+    <button className="border-2 border-slate-600 w-full text-left p-2 bg-slate-100 text-">
+     UA
+    </button>
+    <button>US</button>
+    <button>EU</button>
    </div>
   </>
  );
