@@ -14,7 +14,6 @@ const ToDo = (props) => {
  const [editText, setEditText] = useState(props.todo.title);
 
  const [full, setFull] = useState(false);
- console.log(full);
  return (
   <>
    <div className="bg-sky-100 mb-2 flex font-semibold justify-between p-3 rounded-lg">

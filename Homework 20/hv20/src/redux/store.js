@@ -1,12 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { Provider } from 'react-redux';
 import { createStore } from "redux";
 
 const initialState = {
-  todooos: [
+  todos: [
     {
      id: 1,
      title: "Бег",
@@ -17,7 +12,7 @@ const initialState = {
     },
     {
      id: 2,
-     title: "Приготовить обд",
+     title: "Приготовить обед",
      description: "Приготовить обед на 5 человек.",
      status: "Open",
      createDate: '2022.10.21',
@@ -45,22 +40,10 @@ const initialState = {
   const reducer = (state = initialState, action) => {
     switch (action.type) {
       case "ADD_TODO":
-        return {
-          ...state, 
-          todooos: state.todooos.concat({id: action.payload.id, title: action.payload.title, description: action.payload.description, status: "Open", createDate: action.payload.createDate, updateDate: action.payload.updateDate})}
+        return {...state, todos: [...state.todos, {id: action.payload.id, title: action.payload.title, description: action.payload.description, status: "Open", createDate: action.payload.createDate, updateDate: action.payload.updateDate}]}
       default:
         return state;
     }
   }
 
   const store = createStore(reducer);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-    <App />
-    </Provider>
-  </React.StrictMode>
-);
-

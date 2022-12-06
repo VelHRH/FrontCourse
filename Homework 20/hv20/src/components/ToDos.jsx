@@ -5,6 +5,7 @@ import CreateToDo from "./CreateToDo";
 import { getCurrentDate } from "./data";
 import Filter from "./Filter";
 import Sort from "./Sort";
+import { useSelector, useDispatch } from "react-redux";
 
 const ToDos = () => {
  const [todos, setTodos] = useState(data);
@@ -44,6 +45,25 @@ const ToDos = () => {
    ...todos,
   ]);
  };
+
+ const dispatch = useDispatch();
+ const todooos = useSelector((state) => state.todooos);
+
+ const adddToDo = (title, description) => {
+  dispatch({
+   type: "ADD_TODO",
+   payload: {
+    id: todooos.length + 1,
+    title: title,
+    description: description,
+    createDate: getCurrentDate(),
+    updateDate: getCurrentDate(),
+   },
+  });
+
+  console.log(todooos);
+ };
+
  const inProgress = () => {
   const curToDos = [...todos];
   setFiltered(curToDos.filter((t) => t.status == "In Progress"));
@@ -81,7 +101,7 @@ const ToDos = () => {
 
  return (
   <div className="w-1/2 ml-[25%]">
-   <CreateToDo addToDo={addToDo} />
+   <CreateToDo addToDo={adddToDo} />
    <div className="flex justify-between">
     <Filter
      inProgress={inProgress}
@@ -92,7 +112,7 @@ const ToDos = () => {
     <Sort addedTimeSort={addedTimeSort} editedTimeSort={editedTimeSort} />
    </div>
 
-   {filtered.map((todo) => (
+   {todooos.map((todo) => (
     <ToDo
      key={todo.id}
      todo={todo}
