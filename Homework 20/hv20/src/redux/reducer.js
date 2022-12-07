@@ -1,40 +1,4 @@
-const initialState = {
-  visibilityFilter: 'SHOW_ALL',
-  todooos: [
-   {
-    id: 1,
-    title: "Бег",
-    description: "Бегать 90 минут утром или вечером.",
-    status: "Open",
-    createDate: "2022.09.21",
-    updateDate: "2022.09.21",
-   },
-   {
-    id: 2,
-    title: "Приготовить обд",
-    description: "Приготовить обед на 5 человек.",
-    status: "Open",
-    createDate: "2022.10.21",
-    updateDate: "2022.10.21",
-   },
-   {
-    id: 3,
-    title: "Сделать ДЗ",
-    description: "Сделать математику, английский и программирование.",
-    status: "Open",
-    createDate: "2022.09.21",
-    updateDate: "2022.09.21",
-   },
-   {
-    id: 4,
-    title: "Отправить письмо",
-    description: "Отправить письмо в ответ другу.",
-    status: "Open",
-    createDate: "2022.09.21",
-    updateDate: "2022.09.21",
-   },
-  ],
- };
+import { initialState } from "./data";
 
  export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -48,12 +12,31 @@ const initialState = {
       status: "Open",
       createDate: action.payload.createDate,
       updateDate: action.payload.updateDate,
+      isEditing: false
      }),
     };
    case "DELETE_TODO":
     return {
      ...state,
      todooos: state.todooos.filter((t) => t.id !== action.payload),
+    };
+    case "SORT_ADD":
+    return {
+     ...state,
+     todooos: state.todooos.slice().sort(
+      (a, b) =>
+       new Date(...a.createDate.split(".").reverse()) -
+       new Date(...b.createDate.split(".").reverse())
+     ),
+    };
+    case "SORT_EDIT":
+    return {
+     ...state,
+     todooos: state.todooos.slice().sort(
+      (a, b) =>
+       new Date(...a.updateDate.split(".").reverse()) -
+       new Date(...b.updateDate.split(".").reverse())
+     ),
     };
    case "UPDATE_STATUS":
     return {
@@ -66,6 +49,20 @@ const initialState = {
          ? { ...todo, status: "In Progress" }
          : todo
        : todo
+     ),
+    };
+    case "START_EDITING":
+    return {
+     ...state,
+     todooos: state.todooos.map((todo, i) =>
+      i === action.payload ? { ...todo, isEditing: true } : todo
+     ),
+    };
+    case "END_EDITING":
+    return {
+     ...state,
+     todooos: state.todooos.map((todo, i) =>
+      i === action.payload.id ? { ...todo, isEditing: false, title:action.payload.title, updateDate: action.payload.date} : todo
      ),
     };
     case "SET_VISIBILITY_FILTER":

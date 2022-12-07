@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import ToDo from "./ToDo";
-import { data } from "./data";
 import CreateToDo from "./CreateToDo";
 import { getCurrentDate } from "./data";
 import Filter from "./Filter";
 import Sort from "./Sort";
 import { useSelector, useDispatch } from "react-redux";
-import { getVisibleTodos, visibilityFilter } from "../redux/reducer";
 
 const ToDos = () => {
  const dispatch = useDispatch();
  const todooos = useSelector((state) => state.todooos);
  const visibilityFilter = useSelector((state) => state.visibilityFilter);
-
- const [todos, setTodos] = useState(data);
- const [filtered, setFiltered] = useState(todos);
 
  const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -87,21 +82,33 @@ const ToDos = () => {
  };
 
  const addedTimeSort = () => {
-  const sorted = [...todos].sort(
-   (a, b) =>
-    new Date(...a.createDate.split(".").reverse()) -
-    new Date(...b.createDate.split(".").reverse())
-  );
-  setFiltered(sorted);
+  dispatch({
+   type: "SORT_ADD",
+  });
  };
 
  const editedTimeSort = () => {
-  const sorted = [...todos].sort(
-   (a, b) =>
-    new Date(...a.updateDate.split(".").reverse()) -
-    new Date(...b.updateDate.split(".").reverse())
-  );
-  setFiltered(sorted);
+  dispatch({
+   type: "SORT_EDIT",
+  });
+ };
+
+ const startEditing = (id) => {
+  dispatch({
+   type: "START_EDITING",
+   payload: id - 1,
+  });
+ };
+
+ const endEditing = (id, newTitle, currentDate) => {
+  dispatch({
+   type: "END_EDITING",
+   payload: {
+    id: id - 1,
+    title: newTitle,
+    date: currentDate,
+   },
+  });
  };
 
  return (
@@ -123,6 +130,8 @@ const ToDos = () => {
      todo={todo}
      changeStatusToDo={changeStatus}
      removeToDo={removeToDo}
+     startEditing={startEditing}
+     endEditing={endEditing}
     />
    ))}
   </div>

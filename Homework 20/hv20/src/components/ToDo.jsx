@@ -6,11 +6,11 @@ import {
  TrashIcon,
  ChevronUpIcon,
 } from "@heroicons/react/24/solid";
+import { useSelector, useDispatch } from "react-redux";
 
 const ToDo = (props) => {
  const curId = props.todo.id;
 
- const [edit, setEdit] = useState(false);
  const [editText, setEditText] = useState(props.todo.title);
 
  const [full, setFull] = useState(false);
@@ -29,14 +29,12 @@ const ToDo = (props) => {
        props.todo.status === "Done" && "line-through"
       }`}
      >
-      {edit ? (
+      {props.todo.isEditing ? (
        <div className="flex">
         <input onChange={(e) => setEditText(e.target.value)} value={editText} />{" "}
         <button
          onClick={() => {
-          setEdit(false);
-          props.todo.title = editText;
-          props.todo.updateDate = getCurrentDate();
+          props.endEditing(props.todo.id, editText, getCurrentDate());
          }}
         >
          OK
@@ -49,7 +47,7 @@ const ToDo = (props) => {
     </div>
     <div className="flex">
      <PencilSquareIcon
-      onClick={() => setEdit(true)}
+      onClick={() => props.startEditing(props.todo.id)}
       className="w-7 text-yellow-600 mr-2 hover:text-yellow-300"
      />
      <TrashIcon
