@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { getCurrentDate } from "./data";
+import { getCurrentDate } from "./CurDay";
 import {
  ChevronDownIcon,
  PencilSquareIcon,
  TrashIcon,
  ChevronUpIcon,
 } from "@heroicons/react/24/solid";
-import { useSelector, useDispatch } from "react-redux";
 
 const ToDo = (props) => {
- const curId = props.todo.id;
-
  const [editText, setEditText] = useState(props.todo.title);
 
  const [full, setFull] = useState(false);

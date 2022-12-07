@@ -1,7 +1,7 @@
 import React from "react";
 import ToDo from "./ToDo";
 import CreateToDo from "./CreateToDo";
-import { getCurrentDate } from "./data";
+import { getCurrentDate } from "./CurDay";
 import Filter from "./Filter";
 import Sort from "./Sort";
 import { useSelector, useDispatch } from "react-redux";
