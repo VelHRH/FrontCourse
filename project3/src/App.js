@@ -7,10 +7,10 @@ import { SwapBtn } from "./components/Task1/SwapBtn";
 
 function App() {
  const [amount, setAmount] = useState(0);
- const [cur1, setCur1] = useState("EU");
- const [cur1Full, setCur1Full] = useState("Euro");
- const [cur2, setCur2] = useState("EU");
- const [cur2Full, setCur2Full] = useState("Euro");
+ const [cur1, setCur1] = useState("UA");
+ const [cur1Full, setCur1Full] = useState("Hryvnia");
+ const [cur2, setCur2] = useState("UA");
+ const [cur2Full, setCur2Full] = useState("Hryvnia");
  const [isDropdown1, setIsDropdown1] = useState(false);
  const [isDropdown2, setIsDropdown2] = useState(false);
  return (
@@ -25,7 +25,7 @@ function App() {
       isDropdown={isDropdown1}
       setIsDropdown={setIsDropdown1}
      />
-     <SwapBtn />
+     <SwapBtn cur1={cur1} setCur1={setCur1} cur2={cur2} setCur2={setCur2} cur1Full={cur1Full} setCur1Full={setCur1Full} cur2Full={cur2Full} setCur2Full={setCur2Full} />
      <CurField
       label="To"
       cur={cur2}
