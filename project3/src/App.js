@@ -11,6 +11,8 @@ function App() {
  const [cur1Full, setCur1Full] = useState("Euro");
  const [cur2, setCur2] = useState("EU");
  const [cur2Full, setCur2Full] = useState("Euro");
+ const [isDropdown1, setIsDropdown1] = useState(false);
+ const [isDropdown2, setIsDropdown2] = useState(false);
  return (
   <>
    <div className="flex w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
@@ -19,24 +21,24 @@ function App() {
      <CurField
       label="From"
       cur={cur1}
-      setCur={setCur1}
       curFull={cur1Full}
-      setCurFull={setCur1Full}
+      isDropdown={isDropdown1}
+      setIsDropdown={setIsDropdown1}
      />
      <SwapBtn />
      <CurField
       label="To"
       cur={cur2}
-      setCur={setCur2}
       curFull={cur2Full}
-      setCurFull={setCur2Full}
+      isDropdown={isDropdown2}
+      setIsDropdown={setIsDropdown2}
      />
     </div>
    </div>
    <Result amount={amount} cur1Full={cur1Full} cur2Full={cur2Full} />
    
-   <Dropdown cur={cur1} setCur={setCur1} left="38.3%" />
-   <Dropdown cur={cur2} setCur={setCur2} left="65%" />
+   <Dropdown cur={cur1} setCur={setCur1} setCurFull={setCur1Full} left="left-[38.3%]" isDropdown={isDropdown1} />
+   <Dropdown cur={cur2} setCur={setCur2} setCurFull={setCur2Full} left="left-[65%]" isDropdown={isDropdown2} />
   </>
  );
 }

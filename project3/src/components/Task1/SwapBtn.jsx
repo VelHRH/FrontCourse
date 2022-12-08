@@ -3,7 +3,7 @@ import { ArrowPathIcon } from "@heroicons/react/24/solid";
 
 export const SwapBtn = () => {
  return (
-  <button className="rounded-full border-2 border-slate-300 text-xl p-2 w-[2.75rem] h-[2.75rem] mr-2 self-end hover:bg-slate-200 text-slate-700">
+  <button className="rounded-full border-2 border-slate-300 bg-slate-50 text-xl p-2 w-[2.75rem] h-[2.75rem] mr-2 self-end hover:bg-slate-200 text-slate-700">
    <ArrowPathIcon className="w-6" />
   </button>
  );
