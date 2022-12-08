@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AmountField } from "./components/Task1/AmountField";
 import { CurField } from "./components/Task1/CurField";
+import { Dropdown } from "./components/Task1/Dropdown";
 import { Result } from "./components/Task1/Result";
 import { SwapBtn } from "./components/Task1/SwapBtn";
-//import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 
 function App() {
  const [amount, setAmount] = useState(0);
@@ -34,13 +34,9 @@ function App() {
     </div>
    </div>
    <Result amount={amount} cur1Full={cur1Full} cur2Full={cur2Full} />
-   <div className="flex flex-col items-start absolute left-[38.3%] top-[8rem] w-[19.44%]">
-    <button className="border-2 border-slate-600 w-full text-left p-2 bg-slate-100 text-">
-     UA
-    </button>
-    <button>US</button>
-    <button>EU</button>
-   </div>
+   
+   <Dropdown cur={cur1} setCur={setCur1} left="38.3%" />
+   <Dropdown cur={cur2} setCur={setCur2} left="65%" />
   </>
  );
 }
