@@ -3,20 +3,28 @@ import React, { useEffect, useState } from "react";
 export const Progressbar = ({ question, qSwitcher }) => {
  const [width, setWidth] = useState((100 / 5) * question);
  const [timer, setTimer] = useState(10);
+
  useEffect(() => {
   setWidth(question * 20);
  }, [question]);
+
  useEffect(() => {
   setTimer(10);
  }, [question]);
+
  useEffect(() => {
-  if (timer > 0) {
-   setTimeout(() => setTimer(timer - 1), 1000);
+  let counter;
+  if (timer > -1) {
+   counter = setTimeout(() => setTimer((prev) => prev - 1), 1000);
   }
-  if (timer === 0) {
+  if (timer === -1) {
    qSwitcher();
   }
+  return () => {
+   clearTimeout(counter);
+  };
  }, [timer]);
+
  return (
   <>
    <div className={`h-2 w-full`}>
