@@ -52,6 +52,7 @@ const Task1 = () => {
     setCurFull={setCur1Full}
     left="left-[38.3%]"
     isDropdown={isDropdown1}
+    setIsDropdown={setIsDropdown1}
    />
    <Dropdown
     cur={cur2}
@@ -59,6 +60,7 @@ const Task1 = () => {
     setCurFull={setCur2Full}
     left="left-[65%]"
     isDropdown={isDropdown2}
+    setIsDropdown={setIsDropdown2}
    />
   </>
  );
