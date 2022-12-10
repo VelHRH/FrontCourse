@@ -1,4 +1,4 @@
-export const EASY_QUESTIONS = [
+export const QUESTIONS = [
   {
     text: "По якій ноті музиканти налаштовують свої інструменти?",
     options: [

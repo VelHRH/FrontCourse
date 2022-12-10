@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-export const Progressbar = ({ question, setQuestion }) => {
+export const Progressbar = ({ question, qSwitcher }) => {
  const [width, setWidth] = useState((100 / 5) * question);
- const [timer, setTimer] = useState(100);
+ const [timer, setTimer] = useState(10);
  useEffect(() => {
   setWidth(question * 20);
-  console.log(width);
+ }, [question]);
+ useEffect(() => {
+  setTimer(10);
  }, [question]);
  useEffect(() => {
   if (timer > 0) {
    setTimeout(() => setTimer(timer - 1), 1000);
   }
   if (timer === 0) {
-   setQuestion(question + 1);
+   qSwitcher();
   }
  }, [timer]);
  return (
