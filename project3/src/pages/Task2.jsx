@@ -29,16 +29,21 @@ const Task2 = () => {
      <>
       <QuestionInfo question={question} />
       <div className="flex flex-wrap my-10">
-       <Choice mr="mr-[10%]" addAnswer={addAnswer}>
+       <Choice mr="mr-[10%]" addAnswer={addAnswer} question={question}>
         {QUESTIONS[question].options[0].text}
        </Choice>
-       <Choice addAnswer={addAnswer}>
+       <Choice addAnswer={addAnswer} question={question}>
         {QUESTIONS[question].options[1].text}
        </Choice>
-       <Choice addAnswer={addAnswer} mr="mr-[10%]" mt="mt-[4%]">
+       <Choice
+        addAnswer={addAnswer}
+        mr="mr-[10%]"
+        mt="mt-[4%]"
+        question={question}
+       >
         {QUESTIONS[question].options[2].text}
        </Choice>
-       <Choice addAnswer={addAnswer} mt="mt-[4%]">
+       <Choice addAnswer={addAnswer} mt="mt-[4%]" question={question}>
         {QUESTIONS[question].options[3].text}
        </Choice>
       </div>
