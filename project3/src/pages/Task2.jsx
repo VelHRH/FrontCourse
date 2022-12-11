@@ -21,7 +21,10 @@ const Task2 = () => {
  };
 
  const addAnswer = (text) => {
-  setAnswers((prev) => [...prev, { question: question, answer: text }]);
+  setAnswers((prev) => [
+   ...prev,
+   { question: question, answer: text, isTrue: false },
+  ]);
  };
 
  const clearChoices = () => {
@@ -33,7 +36,11 @@ const Task2 = () => {
 
  return (
   <div className="flex flex-col w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold bg-white border-4 rounded-md border-slate-300 shadow-lg mt-10">
-   <Progressbar question={question} qSwitcher={qSwitcher} />
+   <Progressbar
+    question={question}
+    qSwitcher={qSwitcher}
+    isFinished={isFinished}
+   />
    <div className="w-full h-full p-5 flex flex-col">
     {!isFinished && (
      <>
@@ -47,7 +54,7 @@ const Task2 = () => {
         setIsClicked={setIsClicked1}
         clearChoices={clearChoices}
        >
-        {QUESTIONS[question].options[0].text}
+        {QUESTIONS[question - 1].options[0].text}
        </Choice>
        <Choice
         addAnswer={addAnswer}
@@ -56,7 +63,7 @@ const Task2 = () => {
         setIsClicked={setIsClicked2}
         clearChoices={clearChoices}
        >
-        {QUESTIONS[question].options[1].text}
+        {QUESTIONS[question - 1].options[1].text}
        </Choice>
        <Choice
         addAnswer={addAnswer}
@@ -67,7 +74,7 @@ const Task2 = () => {
         setIsClicked={setIsClicked3}
         clearChoices={clearChoices}
        >
-        {QUESTIONS[question].options[2].text}
+        {QUESTIONS[question - 1].options[2].text}
        </Choice>
        <Choice
         addAnswer={addAnswer}
@@ -77,7 +84,7 @@ const Task2 = () => {
         setIsClicked={setIsClicked4}
         clearChoices={clearChoices}
        >
-        {QUESTIONS[question].options[3].text}
+        {QUESTIONS[question - 1].options[3].text}
        </Choice>
       </div>
       <NextBtn qSwitcher={qSwitcher} />
