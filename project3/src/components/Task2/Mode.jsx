@@ -4,7 +4,9 @@ export const Mode = ({ mode, setMode }) => {
  return (
   <div className="flex ml-[50%] translate-x-[-50%] mt-10 justify-around">
    <button
-    onClick={() => setMode(5)}
+    onClick={() => {
+     setMode(5);
+    }}
     className={`${
      mode === 5
       ? "bg-indigo-700 text-slate-50"
@@ -14,7 +16,9 @@ export const Mode = ({ mode, setMode }) => {
     5 питань
    </button>
    <button
-    onClick={() => setMode(10)}
+    onClick={() => {
+     setMode(10);
+    }}
     className={`${
      mode === 10
       ? "bg-indigo-700 text-slate-50"
@@ -24,7 +28,9 @@ export const Mode = ({ mode, setMode }) => {
     10 питань
    </button>
    <button
-    onClick={() => setMode(15)}
+    onClick={() => {
+     setMode(15);
+    }}
     className={`${
      mode === 15
       ? "bg-indigo-700 text-slate-50"

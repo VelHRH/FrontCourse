@@ -20,11 +20,14 @@ const Task2 = () => {
 
  useEffect(() => {
   setQuestions(QUESTIONS.slice(0, mode));
+  setQuestion(1);
+  setIsFinished(false);
+  setAnswers([]);
  }, [mode]);
 
  const qSwitcher = () => {
-  question < 5 && setQuestion(question + 1);
-  question === 5 && setIsFinished(true);
+  question < mode && setQuestion(question + 1);
+  question === mode && setIsFinished(true);
  };
 
  const addAnswer = (text) => {
@@ -43,14 +46,18 @@ const Task2 = () => {
 
  return (
   <>
-   <Mode mode={mode} setMode={setMode} />
+   <Mode
+    mode={mode}
+    setMode={setMode}
+    setQuestion={setQuestion}
+    setIsFinished={setIsFinished}
+   />
    <div className="flex flex-col w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold bg-white border-4 rounded-md border-slate-300 shadow-lg mt-5">
     <Progressbar
      question={question}
      qSwitcher={qSwitcher}
      isFinished={isFinished}
      questions={questions}
-     mode={mode}
     />
     <div className="w-full h-full p-5 flex flex-col">
      {!isFinished && (

@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-export const Progressbar = ({
- question,
- qSwitcher,
- isFinished,
- questions,
- mode,
-}) => {
+export const Progressbar = ({ question, qSwitcher, isFinished, questions }) => {
  const [width, setWidth] = useState((100 / questions.length) * question);
  const [timer, setTimer] = useState(10);
 
  useEffect(() => {
   setWidth((100 / questions.length) * question);
- }, [question, mode]);
+ }, [question, questions]);
 
  useEffect(() => {
   setTimer(10);
- }, [question]);
+ }, [question, questions]);
 
  useEffect(() => {
   let counter;

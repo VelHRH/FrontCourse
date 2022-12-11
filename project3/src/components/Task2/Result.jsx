@@ -51,7 +51,7 @@ export const Result = ({ answers, questions }) => {
    <div className="flex flex-col">{rows}</div>
    <div className="flex flex-col mr-[20%] self-center">
     <div>Ваш результат:</div>
-    <div className="text-6xl">{(100 / 5) * result}%</div>
+    <div className="text-6xl">{(100 / questions.length) * result}%</div>
    </div>
   </div>
  );
