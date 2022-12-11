@@ -146,4 +146,214 @@ export const QUESTIONS = [
       }
     ]
   },
+  {
+    text: "У Великобританії абревіатура NHS розшифровується як National ... Service?",
+    options: [
+      {
+        text: "Humanity",
+        isTrue: false
+      },
+      {
+        text: "Health",
+        isTrue: true
+      },
+      {
+        text: "Honour",
+        isTrue: false
+      },
+      {
+        text: "Household",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Як називається ремінна машина, що обертається, в аеропорту, яка доставляє зареєстрований багаж із літака до місця отримання багажу?",
+    options: [
+      {
+        text: "Ангар",
+        isTrue: false
+      },
+      {
+        text: "Термінал",
+        isTrue: false
+      },
+      {
+        text: "Конкорс",
+        isTrue: false
+      },
+      {
+        text: "Карусель",
+        isTrue: true
+      }
+    ]
+  },
+  {
+    text: "Який герой Діснея залишає туфельку на королівському балу?",
+    options: [
+      {
+        text: "Покахонтас",
+        isTrue: false
+      },
+      {
+        text: "Спляча красуня",
+        isTrue: false
+      },
+      {
+        text: "Попелюшка",
+        isTrue: true
+      },
+      {
+        text: "Ельза",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Яка з цих марок була в основному пов’язана з виробництвом побутових замків?",
+    options: [
+      {
+        text: "Phillips",
+        isTrue: false
+      },
+      {
+        text: "Flymo",
+        isTrue: false
+      },
+      {
+        text: "Chubb",
+        isTrue: true
+      },
+      {
+        text: "Ronseal",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Акушерство - це розділ медицини, який особливо займається чим?",
+    options: [
+      {
+        text: "Пологи",
+        isTrue: true
+      },
+      {
+        text: "Зламані кістки",
+        isTrue: false
+      },
+      {
+        text: "Серце",
+        isTrue: false
+      },
+      {
+        text: "Похилий вік",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Які іграшки продаються з фразою “robots in disguise”?",
+    options: [
+      {
+        text: "Ляльки Bratz",
+        isTrue: false
+      },
+      {
+        text: "Сім'ї Сільванії",
+        isTrue: false
+      },
+      {
+        text: "Хатчімалс",
+        isTrue: false
+      },
+      {
+        text: "Трансформери",
+        isTrue: true
+      }
+    ]
+  },
+  {
+    text: "Який із цих релігійних обрядів триває найкоротший період часу протягом календарного року?",
+    options: [
+      {
+        text: "Рамадан",
+        isTrue: false
+      },
+      {
+        text: "Дівалі",
+        isTrue: true
+      },
+      {
+        text: "Великий піст",
+        isTrue: false
+      },
+      {
+        text: "Ханука",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Який із цих серіалів знімається в Іспанії?",
+    options: [
+      {
+        text: "Пуститися берега",
+        isTrue: false
+      },
+      {
+        text: "Эліта",
+        isTrue: true
+      },
+      {
+        text: "Дім Дракона",
+        isTrue: false
+      },
+      {
+        text: "Рік та Морті",
+        isTrue: false
+      }
+    ]
+  },
+  {
+    text: "Будівництво якої з цих відомих пам’яток було завершено першим?",
+    options: [
+      {
+        text: "Емпайр Стейт Білдінг",
+        isTrue: false
+      },
+      {
+        text: "Королівський Альберт-Хол",
+        isTrue: false
+      },
+      {
+        text: "Ейфелева вежа",
+        isTrue: false
+      },
+      {
+        text: "Годинникова вежа Біг Бен",
+        isTrue: true
+      }
+    ]
+  },
+  {
+    text: "Хто з цих китоподібних відноситься до «зубатих китів»?",
+    options: [
+      {
+        text: "Сірий кит",
+        isTrue: false
+      },
+      {
+        text: "Малий кит",
+        isTrue: false
+      },
+      {
+        text: "Кашалот",
+        isTrue: true
+      },
+      {
+        text: "Горбатий кит",
+        isTrue: false
+      }
+    ]
+  },
 ];

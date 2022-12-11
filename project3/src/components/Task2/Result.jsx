@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { QUESTIONS } from "./data";
-
-export const Result = ({ answers }) => {
+export const Result = ({ answers, questions }) => {
  const [rows, setRows] = useState([]);
  const [result, setResult] = useState(0);
  const dataFetchedRef = useRef(false);
@@ -9,14 +7,14 @@ export const Result = ({ answers }) => {
   if (dataFetchedRef.current) return;
   dataFetchedRef.current = true;
   for (let i = 0; i < answers.length; i++) {
-   for (let j = 0; j < QUESTIONS[answers[i].question].options.length; j++) {
+   for (let j = 0; j < questions[answers[i].question].options.length; j++) {
     if (
-     answers[i].answer === QUESTIONS[answers[i].question - 1].options[j].text
+     answers[i].answer === questions[answers[i].question - 1].options[j].text
     ) {
      if (i === answers.length - 1) {
-      answers[i].isTrue = QUESTIONS[answers[i].question - 1].options[j].isTrue;
+      answers[i].isTrue = questions[answers[i].question - 1].options[j].isTrue;
      } else if (answers[i].question !== answers[i + 1].question)
-      answers[i].isTrue = QUESTIONS[answers[i].question - 1].options[j].isTrue;
+      answers[i].isTrue = questions[answers[i].question - 1].options[j].isTrue;
     }
    }
   }
