@@ -9,12 +9,11 @@ function App() {
  const [isPaused, setIsPaused] = useState(false);
  const [round, setRound] = useState(1);
  const [results, setResults] = useState([
-  { round: 0, h: 0, m: 0, s: 0, ms: 0, sum: 0 },
+  { round: 0, h: 0, m: 0, s: 0, ms: 0, sum: 0, total: 0 },
  ]);
 
  useEffect(() => {
   !isStarted && setTime({ h: 0, m: 0, s: 0, ms: 0 });
-  setResults({ round: 0, h: 0, m: 0, s: 0, ms: 0, sum: 0 });
  }, [isStarted]);
 
  let incrementH = time.h;
@@ -46,6 +45,7 @@ function App() {
    results[round - 1].s * 1000 +
    results[round - 1].m * 1000 * 60 +
    results[round - 1].h * 1000 * 3600;
+  console.log(timePassed);
   const cur =
    time.ms * 10 + time.s * 1000 + time.m * 1000 * 60 + time.h * 1000 * 3600;
   var msec = cur - timePassed;
@@ -64,14 +64,9 @@ function App() {
     s: ss,
     ms: msec / 10,
     sum: timePassed,
+    total: cur - timePassed,
    },
   ]);
-  clearInterval(intervalId);
-  start();
-  setIntervalId(setInterval(start, 10));
-  console.log(timePassed);
-  console.log(cur);
-  console.log(results);
  };
 
  return (
@@ -91,6 +86,7 @@ function App() {
     setRound={setRound}
     save={save}
     results={results}
+    setResults={setResults}
    />
   </>
  );
