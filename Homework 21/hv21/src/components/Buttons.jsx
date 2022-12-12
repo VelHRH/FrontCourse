@@ -61,7 +61,7 @@ export const Buttons = ({
        start();
        setIntervalId(setInterval(start, 10));
       }}
-      className="text-3xl mt-5 py-2 px-4 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-slate-50"
+      className="text-3xl mt-5 py-2 px-4 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-slate-50"
      >
       START
      </button>
@@ -97,7 +97,7 @@ export const Buttons = ({
         setRound(1);
         setIsSort(false);
        }}
-       className="text-3xl mt-5 py-2 px-4 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-slate-50 mx-2"
+       className="text-3xl mt-5 py-2 px-4 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-slate-50 mx-2"
       >
        RESET
       </button>
@@ -113,11 +113,11 @@ export const Buttons = ({
       {results.length > 1 && (
        <button
         onClick={() => {
-         setIsSort(true);
+         setIsSort(!isSort);
         }}
         className="text-3xl mt-5 py-2 px-4 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-slate-50 mx-2"
        >
-        SORT
+        {isSort ? "UNSORT" : "SORT"}
        </button>
       )}
      </>
