@@ -1,7 +1,10 @@
 import React from "react";
 import { Image } from "../components/Task3/Image";
+import { useSelector, useDispatch } from "react-redux";
 
 const Task3 = () => {
+ const dispatch = useDispatch();
+ const cards = useSelector((state) => state.cards);
  return (
   <div className="flex flex-wrap w-[70%] ml-[50%] translate-x-[-50%] mt-10">
    <Image link="https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg" />
