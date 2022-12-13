@@ -2,17 +2,14 @@ import { initialState } from "./data";
 
  export const reducer = (state = initialState, action) => {
   switch (action.type) {
-   case "ADD_TODO":
+   case "ADD_IMAGE":
     return {
      ...state,
-     todooos: state.todooos.concat({
+     cards: state.cards.concat({
       id: action.payload.id,
-      title: action.payload.title,
-      description: action.payload.description,
-      status: "Open",
-      createDate: action.payload.createDate,
-      updateDate: action.payload.updateDate,
-      isEditing: false
+      link: action.payload.link,
+      category: action.payload.category,
+      views: 0,
      }),
     };
    default:
