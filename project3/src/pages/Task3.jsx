@@ -93,9 +93,9 @@ const Task3 = () => {
        All
       </button>
       <button
-       onClick={() => setCurCategory("Nature")}
+       onClick={() => setCurCategory("NATURE")}
        className={`py-2 px-3 border-2 border-sky-600 rounded-md mr-2 ${
-        curCategory === "Nature"
+        curCategory === "NATURE"
          ? "bg-sky-600 text-slate-50"
          : "text-sky-600 hover:bg-slate-200 bg-slate-50"
        }`}
@@ -103,9 +103,9 @@ const Task3 = () => {
        Nature
       </button>
       <button
-       onClick={() => setCurCategory("Cars")}
+       onClick={() => setCurCategory("CARS")}
        className={`py-2 px-3 border-2 border-sky-600 rounded-md mr-2 ${
-        curCategory === "Cars"
+        curCategory === "CARS"
          ? "bg-sky-600 text-slate-50"
          : "text-sky-600 hover:bg-slate-200 bg-slate-50"
        }`}
@@ -133,7 +133,7 @@ const Task3 = () => {
           ))
         : curPhotos.map(
            (card) =>
-            card.category === searchVal && (
+            card.category === searchVal.toUpperCase() && (
              <Image
               key={card.id}
               viewCardHandler={viewCardHandler}
