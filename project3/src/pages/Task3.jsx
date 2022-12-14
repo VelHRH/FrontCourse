@@ -3,10 +3,12 @@ import { Image } from "../components/Task3/Image/Image";
 import { useSelector, useDispatch } from "react-redux";
 import { Add } from "../components/Task3/Add";
 import { FullCard } from "../components/Task3/FullCard";
+import { Search } from "../components/Task3/Search";
 
 const Task3 = () => {
  const [curCategory, setCurCategory] = useState("");
  const [openedCard, setOpenedCard] = useState(-1);
+ const [searchVal, setSearchVal] = useState("");
 
  const dispatch = useDispatch();
  const cards = useSelector((state) => state.cards);
@@ -42,7 +44,7 @@ const Task3 = () => {
 
    <div className="flex flex-col mt-10 w-[70%] ml-[50%] translate-x-[-50%]">
     <div className="flex w-full flex-wrap justify-between my-2 h-12">
-     <div className="flex">
+     <div className="flex text-lg">
       <button
        onClick={() => setCurCategory("")}
        className={`py-2 px-3 border-2 border-sky-600 rounded-md mr-2 ${
@@ -74,18 +76,34 @@ const Task3 = () => {
        Cars
       </button>
      </div>
-     {curCategory !== "" && <Add addImage={addImage} />}
+     {curCategory !== "" ? (
+      <Add addImage={addImage} />
+     ) : (
+      <Search searchVal={searchVal} setSearchVal={setSearchVal} />
+     )}
     </div>
     <div className="flex flex-wrap">
      {curCategory === ""
-      ? cards.map((card) => (
-         <Image
-          viewCardHandler={viewCardHandler}
-          id={card.id}
-          link={card.link}
-          views={card.views}
-         />
-        ))
+      ? searchVal === ""
+        ? cards.map((card) => (
+           <Image
+            viewCardHandler={viewCardHandler}
+            id={card.id}
+            link={card.link}
+            views={card.views}
+           />
+          ))
+        : cards.map(
+           (card) =>
+            card.category === searchVal && (
+             <Image
+              viewCardHandler={viewCardHandler}
+              id={card.id}
+              link={card.link}
+              views={card.views}
+             />
+            )
+          )
       : cards.map(
          (card) =>
           card.category === curCategory && (

@@ -6,9 +6,9 @@ export const FullCard = ({ link, category, views, setOpenedCard }) => {
   <>
    <div
     onClick={() => setOpenedCard(-1)}
-    className="absolute left-0 top-0 w-screen h-screen bg-black z-30 opacity-70"
+    className="fixed left-0 top-0 w-screen h-screen overscroll-none bg-black z-30 opacity-70"
    ></div>
-   <div className="absolute left-[50%] top-[50%] translate-x-[-50%] z-40 translate-y-[-50%] bg-sky-200 p-4 rounded-2xl flex flex-col items-center">
+   <div className="fixed left-[50%] top-[50%] translate-x-[-50%] z-40 translate-y-[-50%] bg-sky-200 p-4 rounded-2xl flex flex-col items-center">
     <img
      src={link}
      alt={category}
