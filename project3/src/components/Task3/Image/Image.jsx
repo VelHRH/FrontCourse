@@ -2,9 +2,12 @@ import React from "react";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import styles from "./Image.module.css";
 
-export const Image = ({ link, views }) => {
+export const Image = ({ link, views, id, viewCardHandler }) => {
  return (
-  <div className="w-1/2 md:w-1/4 aspect-square bg-black">
+  <div
+   onClick={() => viewCardHandler(id)}
+   className="w-1/2 md:w-1/4 aspect-square bg-black"
+  >
    <div className={`w-full h-full ${styles.img}`}>
     <img
      src={link}

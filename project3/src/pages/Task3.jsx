@@ -17,6 +17,15 @@ const Task3 = () => {
    },
   });
  };
+ const viewCardHandler = (id) => {
+  dispatch({
+   type: "INCREMENT_VIEW",
+   payload: {
+    id: id,
+   },
+  });
+  console.log(cards);
+ };
  return (
   <div className="flex flex-col mt-10 w-[70%] ml-[50%] translate-x-[-50%]">
    <div className="flex w-full flex-wrap justify-between my-2 h-12">
@@ -57,12 +66,22 @@ const Task3 = () => {
    <div className="flex flex-wrap">
     {curCategory === ""
      ? cards.map((card) => (
-        <Image key={card.id} link={card.link} views={card.views} />
+        <Image
+         viewCardHandler={viewCardHandler}
+         id={card.id}
+         link={card.link}
+         views={card.views}
+        />
        ))
      : cards.map(
         (card) =>
          card.category === curCategory && (
-          <Image key={card.id} link={card.link} views={card.views} />
+          <Image
+           viewCardHandler={viewCardHandler}
+           id={card.id}
+           link={card.link}
+           views={card.views}
+          />
          )
        )}
    </div>
