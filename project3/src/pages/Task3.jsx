@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "../components/Task3/Image/Image";
 import { useSelector, useDispatch } from "react-redux";
 import { Add } from "../components/Task3/Add";
@@ -6,12 +6,49 @@ import { FullCard } from "../components/Task3/FullCard";
 import { Search } from "../components/Task3/Search";
 
 const Task3 = () => {
+ const dispatch = useDispatch();
+ const cards = useSelector((state) => state.cards);
+
  const [curCategory, setCurCategory] = useState("");
  const [openedCard, setOpenedCard] = useState(-1);
  const [searchVal, setSearchVal] = useState("");
+ const [fetching, setFetching] = useState(false);
+ const [curPhotos, setCurPhotos] = useState(cards.slice(0, 12));
+ const [curPage, setCurPage] = useState(1);
 
- const dispatch = useDispatch();
- const cards = useSelector((state) => state.cards);
+ useEffect(() => {
+  document.addEventListener("scroll", scrollHandler);
+  return function () {
+   document.removeEventListener("scroll", scrollHandler);
+  };
+ }, []);
+
+ useEffect(() => {
+  console.log(curPhotos);
+ });
+
+ useEffect(() => {
+  if (fetching) {
+   setCurPhotos([
+    ...curPhotos,
+    ...cards.slice(12 * curPage, 12 * (curPage + 1)),
+   ]);
+   setCurPage((prev) => prev + 1);
+   setFetching(false);
+  }
+ }, [fetching]);
+
+ const scrollHandler = (e) => {
+  if (
+   e.target.documentElement.scrollHeight -
+    e.target.documentElement.scrollTop -
+    window.innerHeight <
+   100
+  ) {
+   setFetching(true);
+  }
+ };
+
  const addImage = (link) => {
   dispatch({
    type: "ADD_IMAGE",
@@ -43,7 +80,7 @@ const Task3 = () => {
    )}
 
    <div className="flex flex-col mt-10 w-[70%] ml-[50%] translate-x-[-50%]">
-    <div className="flex w-full flex-wrap justify-between my-2 h-12">
+    <div className="flex w-full flex-wrap justify-between my-2 mt-10 h-12">
      <div className="flex text-lg">
       <button
        onClick={() => setCurCategory("")}
@@ -85,18 +122,20 @@ const Task3 = () => {
     <div className="flex flex-wrap">
      {curCategory === ""
       ? searchVal === ""
-        ? cards.map((card) => (
+        ? curPhotos.map((card) => (
            <Image
+            key={card.id}
             viewCardHandler={viewCardHandler}
             id={card.id}
             link={card.link}
             views={card.views}
            />
           ))
-        : cards.map(
+        : curPhotos.map(
            (card) =>
             card.category === searchVal && (
              <Image
+              key={card.id}
               viewCardHandler={viewCardHandler}
               id={card.id}
               link={card.link}
@@ -104,10 +143,11 @@ const Task3 = () => {
              />
             )
           )
-      : cards.map(
+      : curPhotos.map(
          (card) =>
           card.category === curCategory && (
            <Image
+            key={card.id}
             viewCardHandler={viewCardHandler}
             id={card.id}
             link={card.link}
