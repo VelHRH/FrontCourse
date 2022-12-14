@@ -33,5 +33,26 @@ export const initialState = {
    category: "Nature",
    views: 0,
   },
+  {
+   id: 5,
+   link:
+    "https://imgr1.auto-motor-und-sport.de/Autos-Ausland-Aufmacher-Collage-169FullWidth-45eb77d6-1663858.jpg",
+   category: "Cars",
+   views: 0,
+  },
+  {
+   id: 6,
+   link:
+    "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg",
+   category: "Nature",
+   views: 0,
+  },
+  {
+   id: 7,
+   link:
+    "https://images.prismic.io/shacarlacca/YjIyYjAwYjYtNzVkZS00OTYyLWEyNDQtYWU5NTUzZmQ4ODAz__10.jpg",
+   category: "Cars",
+   views: 0,
+  },
  ],
 };

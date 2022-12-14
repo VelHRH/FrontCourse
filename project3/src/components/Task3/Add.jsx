@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 
 export const Add = ({ addImage }) => {
+ const [link, setLink] = useState("");
  return (
-  <div className="flex self-end mb-2">
+  <div className="flex self-end">
    <input
     type="text"
     className="p-2 rounded-l-xl border-4 border-sky-600 focus:outline-none"
     placeholder="Вставьте ссылку"
+    onChange={(e) => setLink(e.target.value)}
+    value={link}
    />
    <button
     onClick={() => {
-     addImage(
-      "https://upload.wikimedia.org/wikipedia/commons/4/41/Idku_sea.jpg",
-      "Nature"
-     );
+     addImage(link);
     }}
     className="p-2 bg-sky-600 hover:bg-sky-800 rounded-r-xl"
    >
