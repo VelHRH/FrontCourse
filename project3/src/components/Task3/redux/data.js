@@ -5,13 +5,13 @@ export const initialState = {
    link:
     "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg",
    category: "Nature",
-   views: 0,
+   views: 2,
   },
   {
    id: 1,
    link: "https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg",
    category: "Nature",
-   views: 0,
+   views: 1,
   },
   {
    id: 2,
@@ -31,7 +31,7 @@ export const initialState = {
    id: 4,
    link: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
    category: "Nature",
-   views: 0,
+   views: 3,
   },
   {
    id: 5,
