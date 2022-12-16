@@ -15,7 +15,7 @@ const Task1 = () => {
  const [isDropdown2, setIsDropdown2] = useState(false);
  return (
   <>
-   <div className="flex w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
+   <div className="flex w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
     <AmountField amount={amount} setAmount={setAmount} />
     <div className="w-2/3 flex justify-between">
      <CurField
@@ -50,7 +50,7 @@ const Task1 = () => {
     cur={cur1}
     setCur={setCur1}
     setCurFull={setCur1Full}
-    left="left-[38.3%]"
+    left="left-[34%] md:left-[38.3%]"
     isDropdown={isDropdown1}
     setIsDropdown={setIsDropdown1}
    />
@@ -58,7 +58,7 @@ const Task1 = () => {
     cur={cur2}
     setCur={setCur2}
     setCurFull={setCur2Full}
-    left="left-[65%]"
+    left="left-[71%] md:left-[65%]"
     isDropdown={isDropdown2}
     setIsDropdown={setIsDropdown2}
    />

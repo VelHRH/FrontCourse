@@ -52,7 +52,7 @@ const Task2 = () => {
     setQuestion={setQuestion}
     setIsFinished={setIsFinished}
    />
-   <div className="flex flex-col w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold bg-white border-4 rounded-md border-slate-300 shadow-lg mt-5">
+   <div className="flex flex-col w-[98%] md:w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold bg-white border-4 rounded-md border-slate-300 shadow-lg mt-5">
     <Progressbar
      question={question}
      qSwitcher={qSwitcher}

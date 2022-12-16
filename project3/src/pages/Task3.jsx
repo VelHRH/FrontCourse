@@ -79,7 +79,7 @@ const Task3 = () => {
     />
    )}
 
-   <div className="flex flex-col mt-10 w-[70%] ml-[50%] translate-x-[-50%]">
+   <div className="flex flex-col mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%]">
     <div className="flex w-full flex-wrap justify-between my-2 mt-10 h-12">
      <div className="flex text-lg">
       <button
