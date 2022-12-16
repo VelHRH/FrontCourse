@@ -5,7 +5,7 @@ import { Dropdown } from "../components/Task1/Dropdown";
 import { Result } from "../components/Task1/Result";
 import { SwapBtn } from "../components/Task1/SwapBtn";
 
-const Task1 = () => {
+const Task1 = ({ nightMode }) => {
  const [amount, setAmount] = useState(0);
  const [cur1, setCur1] = useState("UA");
  const [cur1Full, setCur1Full] = useState("Hryvnia");
@@ -16,7 +16,7 @@ const Task1 = () => {
  return (
   <>
    <div className="flex w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
-    <AmountField amount={amount} setAmount={setAmount} />
+    <AmountField amount={amount} setAmount={setAmount} nightMode={nightMode} />
     <div className="w-2/3 flex justify-between">
      <CurField
       label="From"
@@ -24,6 +24,7 @@ const Task1 = () => {
       curFull={cur1Full}
       isDropdown={isDropdown1}
       setIsDropdown={setIsDropdown1}
+      nightMode={nightMode}
      />
      <SwapBtn
       cur1={cur1}
@@ -41,10 +42,16 @@ const Task1 = () => {
       curFull={cur2Full}
       isDropdown={isDropdown2}
       setIsDropdown={setIsDropdown2}
+      nightMode={nightMode}
      />
     </div>
    </div>
-   <Result amount={amount} cur1Full={cur1Full} cur2Full={cur2Full} />
+   <Result
+    amount={amount}
+    cur1Full={cur1Full}
+    cur2Full={cur2Full}
+    nightMode={nightMode}
+   />
 
    <Dropdown
     cur={cur1}

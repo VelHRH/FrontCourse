@@ -8,10 +8,15 @@ export const CurField = ({
  label,
  setIsDropdown,
  isDropdown,
+ nightMode,
 }) => {
  return (
   <div className="flex flex-col font-semibold text-2xl w-5/12 mr-2">
-   <div className="font-bold">{label}</div>
+   <div
+    className={`${nightMode ? "text-slate-50" : "text-slate-900"} font-bold`}
+   >
+    {label}
+   </div>
    <div
     onClick={() => setIsDropdown(!isDropdown)}
     className={`flex rounded-md border-2 border-slate-300 bg-slate-50 text-xl p-2 w-full justify-between cursor-pointer`}

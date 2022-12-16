@@ -15,6 +15,7 @@ const Task3 = () => {
  const [fetching, setFetching] = useState(false);
  const [curPhotos, setCurPhotos] = useState(cards.slice(0, 12));
  const [curPage, setCurPage] = useState(1);
+ const [nightMode, setNightMode] = useState(false);
 
  useEffect(() => {
   document.addEventListener("scroll", scrollHandler);
@@ -128,7 +129,7 @@ const Task3 = () => {
             viewCardHandler={viewCardHandler}
             id={card.id}
             link={card.link}
-            views={card.views}
+            views={cards[card.id].views}
            />
           ))
         : curPhotos.map(

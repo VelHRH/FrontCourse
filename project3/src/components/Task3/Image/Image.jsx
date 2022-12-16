@@ -15,7 +15,7 @@ export const Image = ({ link, views, id, viewCardHandler }) => {
      className="w-full h-full cursor-pointer border-2 border-slate-50 object-cover"
     ></img>
     <div
-     className={`flex absolute text-white ml-[calc(25%/2)] translate-x-[-50%] cursor-pointer mt-[-155px] ${styles.eye}`}
+     className={`flex absolute text-white ml-[24%] md:ml-[calc(25%/2)] translate-x-[-50%] cursor-pointer mt-[-155px] ${styles.eye}`}
     >
      <EyeIcon className={`w-12`} />
      <div className="text-2xl font-bold ml-4">{views}</div>
