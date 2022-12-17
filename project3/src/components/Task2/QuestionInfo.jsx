@@ -3,7 +3,6 @@ import React from "react";
 export const QuestionInfo = ({ questions, question }) => {
  return (
   <>
-   {console.log(questions)}
    <div className="text-slate-500 self-center">
     {question} of {questions.length}
    </div>

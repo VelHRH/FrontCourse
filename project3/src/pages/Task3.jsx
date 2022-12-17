@@ -15,7 +15,7 @@ const Task3 = () => {
  const [fetching, setFetching] = useState(false);
  const [curPhotos, setCurPhotos] = useState(cards.slice(0, 12));
  const [curPage, setCurPage] = useState(1);
- const [nightMode, setNightMode] = useState(false);
+ const [isCorrectLink, setIsCorrectLink] = useState(true);
 
  useEffect(() => {
   document.addEventListener("scroll", scrollHandler);
@@ -23,10 +23,6 @@ const Task3 = () => {
    document.removeEventListener("scroll", scrollHandler);
   };
  }, []);
-
- useEffect(() => {
-  console.log(curPhotos);
- });
 
  useEffect(() => {
   if (fetching) {
@@ -38,6 +34,12 @@ const Task3 = () => {
    setFetching(false);
   }
  }, [fetching]);
+
+ useEffect(() => {
+  if (12 * curPage > cards.length) {
+   setCurPhotos(cards);
+  }
+ }, [cards]);
 
  const scrollHandler = (e) => {
   if (
@@ -51,14 +53,23 @@ const Task3 = () => {
  };
 
  const addImage = (link) => {
-  dispatch({
-   type: "ADD_IMAGE",
-   payload: {
-    id: cards.length,
-    link: link,
-    category: curCategory,
-   },
-  });
+  if (
+   link.slice(-4) !== ".jpg" &&
+   link.slice(-4) !== ".png" &&
+   link.slice(-5) !== ".jpeg"
+  ) {
+   setIsCorrectLink(false);
+  } else {
+   dispatch({
+    type: "ADD_IMAGE",
+    payload: {
+     id: cards.length,
+     link: link,
+     category: curCategory,
+    },
+   });
+   setIsCorrectLink(true);
+  }
  };
  const viewCardHandler = (id) => {
   dispatch({
@@ -115,7 +126,7 @@ const Task3 = () => {
       </button>
      </div>
      {curCategory !== "" ? (
-      <Add addImage={addImage} />
+      <Add addImage={addImage} isCorrectLink={isCorrectLink} />
      ) : (
       <Search searchVal={searchVal} setSearchVal={setSearchVal} />
      )}
