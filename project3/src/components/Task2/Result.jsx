@@ -7,7 +7,8 @@ export const Result = ({ answers, questions }) => {
   if (dataFetchedRef.current) return;
   dataFetchedRef.current = true;
   for (let i = 0; i < answers.length; i++) {
-   for (let j = 0; j < questions[answers[i].question].options.length; j++) {
+   for (let j = 0; j < 4; j++) {
+    console.log(questions[answers[i].question]);
     if (
      answers[i].answer === questions[answers[i].question - 1].options[j].text
     ) {
@@ -51,7 +52,9 @@ export const Result = ({ answers, questions }) => {
    <div className="flex flex-col">{rows}</div>
    <div className="flex flex-col mr-[20%] self-center">
     <div>Ваш результат:</div>
-    <div className="text-6xl">{(100 / questions.length) * result}%</div>
+    <div className="text-6xl">
+     {((100 / questions.length) * result).toFixed(2)}%
+    </div>
    </div>
   </div>
  );

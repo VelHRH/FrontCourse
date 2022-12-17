@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 
 export const Progressbar = ({ question, qSwitcher, isFinished, questions }) => {
  const [width, setWidth] = useState((100 / questions.length) * question);
- const [timer, setTimer] = useState(10);
+ const [timer, setTimer] = useState(100);
 
  useEffect(() => {
   setWidth((100 / questions.length) * question);
  }, [question, questions]);
 
  useEffect(() => {
-  setTimer(10);
+  setTimer(100);
  }, [question, questions]);
 
  useEffect(() => {
@@ -39,13 +39,13 @@ export const Progressbar = ({ question, qSwitcher, isFinished, questions }) => {
      style={{
       width: `${isFinished ? "0" : timer}%`,
       backgroundColor: `${
-       timer < 2
+       timer < 20
         ? "red"
-        : timer < 4
+        : timer < 40
         ? "orange"
-        : timer < 6
+        : timer < 60
         ? "yellow"
-        : timer < 8
+        : timer < 80
         ? "lime"
         : "green"
       }`,
