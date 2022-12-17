@@ -12,7 +12,7 @@ export const Dropdown = ({
   <div
    className={`${
     isDropdown ? "flex" : "hidden"
-   } flex-col items-start absolute ${left} top-[13rem] w-[26.44%] md:w-[19.44%]`}
+   } flex-col items-start absolute ${left} top-[16.5rem] w-[26.44%] md:w-[19.44%]`}
   >
    <button
     onClick={() => {

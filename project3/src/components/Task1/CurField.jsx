@@ -19,7 +19,9 @@ export const CurField = ({
    </div>
    <div
     onClick={() => setIsDropdown(!isDropdown)}
-    className={`flex rounded-md border-2 border-slate-300 bg-slate-50 text-xl p-2 w-full justify-between cursor-pointer`}
+    className={`${
+     isDropdown ? "border-slate-600" : "border-slate-300"
+    } flex rounded-md border-2 bg-slate-50 text-xl p-2 w-full justify-between cursor-pointer`}
    >
     <div>
      <ReactCountryFlag
