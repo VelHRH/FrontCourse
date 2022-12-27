@@ -1,15 +1,11 @@
 import React from "react";
 
-export const AmountField = ({ amount, setAmount, nightMode }) => {
+export const AmountField = ({ amount, setAmount }) => {
  const blockInvalidChar = (e) =>
   ["+", "-"].includes(e.key) && e.preventDefault();
  return (
   <div className="flex flex-col font-semibold text-2xl w-1/5 mr-3">
-   <div
-    className={`${nightMode ? "text-slate-50" : "text-slate-900"} font-bold`}
-   >
-    Amount
-   </div>
+   <div className={`dark:text-slate-50 text-slate-900 font-bold`}>Amount</div>
    <input
     type="number"
     min={0}

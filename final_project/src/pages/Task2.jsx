@@ -7,7 +7,7 @@ import { Result } from "../components/Task2/Result";
 import { QUESTIONS } from "../components/Task2/data";
 import { Mode } from "../components/Task2/Mode";
 
-const Task2 = ({ nightMode }) => {
+const Task2 = () => {
  const [question, setQuestion] = useState(1);
  const [isFinished, setIsFinished] = useState(false);
  const [answers, setAnswers] = useState([]);
@@ -54,10 +54,8 @@ const Task2 = ({ nightMode }) => {
     setIsFinished={setIsFinished}
    />
    <div
-    className={`flex flex-col w-[98%] md:w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold border-4 rounded-md ${
-     nightMode
-      ? "border-slate-100 bg-slate-800 shadow-slate-100"
-      : "border-slate-900 bg-lime-200 shadow-slate-900"
+    className={`flex flex-col w-[98%] md:w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold border-4 rounded-md dark:border-slate-100 dark:bg-slate-800 dark:shadow-slate-100
+border-slate-900 bg-lime-100 shadow-slate-900
     } shadow-[10px_5px] mt-5`}
    >
     <Progressbar
@@ -69,11 +67,7 @@ const Task2 = ({ nightMode }) => {
     <div className="w-full h-full p-5 flex flex-col">
      {!isFinished && (
       <>
-       <QuestionInfo
-        question={question}
-        questions={questions}
-        nightMode={nightMode}
-       />
+       <QuestionInfo question={question} questions={questions} />
        <div className="flex flex-wrap my-10">
         <Choice
          mr="mr-[10%]"
@@ -82,7 +76,6 @@ const Task2 = ({ nightMode }) => {
          isClicked={isClicked1}
          setIsClicked={setIsClicked1}
          clearChoices={clearChoices}
-         nightMode={nightMode}
         >
          {questions[question - 1].options[0].text}
         </Choice>
@@ -92,7 +85,6 @@ const Task2 = ({ nightMode }) => {
          isClicked={isClicked2}
          setIsClicked={setIsClicked2}
          clearChoices={clearChoices}
-         nightMode={nightMode}
         >
          {questions[question - 1].options[1].text}
         </Choice>
@@ -104,7 +96,6 @@ const Task2 = ({ nightMode }) => {
          isClicked={isClicked3}
          setIsClicked={setIsClicked3}
          clearChoices={clearChoices}
-         nightMode={nightMode}
         >
          {questions[question - 1].options[2].text}
         </Choice>
@@ -115,12 +106,11 @@ const Task2 = ({ nightMode }) => {
          isClicked={isClicked4}
          setIsClicked={setIsClicked4}
          clearChoices={clearChoices}
-         nightMode={nightMode}
         >
          {questions[question - 1].options[3].text}
         </Choice>
        </div>
-       <NextBtn qSwitcher={qSwitcher} nightMode={nightMode} />
+       <NextBtn qSwitcher={qSwitcher} />
       </>
      )}
     </div>

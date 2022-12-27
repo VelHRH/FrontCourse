@@ -10,9 +10,13 @@ import Index from "./pages/index";
 function App() {
  const [nightMode, setNightMode] = useState(false);
  useEffect(() => {
-  nightMode
-   ? document.body.classList.add("bg-slate-800")
-   : document.body.classList.remove("bg-slate-800");
+  if (nightMode) {
+   document.body.classList.add("bg-slate-800");
+   document.documentElement.classList.add("dark");
+  } else {
+   document.body.classList.remove("bg-slate-800");
+   document.documentElement.classList.remove("dark");
+  }
  }, [nightMode]);
 
  return (
@@ -21,10 +25,10 @@ function App() {
     <Navbar nightMode={nightMode} setNightMode={setNightMode} />
     <Routes>
      <Route path="/" element={<Index />} />
-     <Route path="/convert" element={<Task1 nightMode={nightMode} />} />
+     <Route path="/convert" element={<Task1 />} />
      <Route path="/quiz" element={<Task2 />} />
      <Route path="/photos" element={<Task3 />} />
-     <Route path="*" element={<Page404 nightMode={nightMode} />} />
+     <Route path="*" element={<Page404 />} />
     </Routes>
    </BrowserRouter>
   </>
