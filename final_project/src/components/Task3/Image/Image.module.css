@@ -1,0 +1,14 @@
+@tailwind components;
+
+@layer components {
+ .eye {
+  display: none;
+ }
+ .img:hover > .eye {
+  display: block;
+ }
+ .img:hover > img {
+  opacity: 0.5;
+  transition: 0.5s;
+ }
+}
