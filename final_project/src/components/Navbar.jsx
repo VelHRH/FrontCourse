@@ -38,7 +38,7 @@ export const Navbar = ({ nightMode, setNightMode }) => {
       Quiz
      </button>
     </Link>
-    <Link to="/photos">
+    <Link to="/1of2">
      <button
       className={`${
        nightMode
@@ -46,7 +46,7 @@ export const Navbar = ({ nightMode, setNightMode }) => {
         : "border-slate-900 shadow-slate-900 text-slate-900"
       } bg-sky-500 absolute font-bold right-2 md:right-[15%] top-20 uppercase p-2 md:p-3 text-xl md:text-3xl border-4 shadow-[5px_5px] active:shadow-none active:ml-[5px] active:mt-[5px]`}
      >
-      PhotoGramm
+      1 of 2
      </button>
     </Link>
    </div>

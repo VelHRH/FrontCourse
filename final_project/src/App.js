@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Task3 from "./pages/Task3";
 import Page404 from "./pages/Page404";
 import Index from "./pages/index";
+import Categories from "./pages/OneOfTwo/Categories";
+import Subcategories from "./pages/OneOfTwo/Subcategories";
+import Info from "./pages/OneOfTwo/Info";
 
 function App() {
  const [nightMode, setNightMode] = useState(false);
@@ -28,6 +31,9 @@ function App() {
      <Route path="/convert" element={<Task1 />} />
      <Route path="/quiz" element={<Task2 />} />
      <Route path="/photos" element={<Task3 />} />
+     <Route path="/1of2" element={<Categories />} />
+     <Route path="/1of2/:id" element={<Subcategories />} />
+     <Route path="/1of2/:id/:id" element={<Info />} />
      <Route path="*" element={<Page404 />} />
     </Routes>
    </BrowserRouter>

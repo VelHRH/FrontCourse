@@ -6,7 +6,7 @@ import { QuestionInfo } from "../components/Task2/QuestionInfo";
 import { Result } from "../components/Task2/Result";
 import { QUESTIONS } from "../components/Task2/data";
 import { Mode } from "../components/Task2/Mode";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./animation.css";
 
 const Task2 = () => {
