@@ -6,6 +6,8 @@ import { QuestionInfo } from "../components/Task2/QuestionInfo";
 import { Result } from "../components/Task2/Result";
 import { QUESTIONS } from "../components/Task2/data";
 import { Mode } from "../components/Task2/Mode";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./animation.css";
 
 const Task2 = () => {
  const [question, setQuestion] = useState(1);
@@ -54,9 +56,10 @@ const Task2 = () => {
     setIsFinished={setIsFinished}
    />
    <div
-    className={`flex flex-col w-[98%] md:w-[70%] ml-[50%] text-lg translate-x-[-50%] font-semibold border-4 rounded-md dark:border-slate-100 dark:bg-slate-800 dark:shadow-slate-100
-border-slate-900 bg-lime-100 shadow-slate-900
-    } shadow-[10px_5px] mt-5`}
+    className={`flex flex-col w-[98%] md:w-[70%] ml-[50%] text-lg translate-x-[-50%] 
+    font-semibold border-4 rounded-md dark:border-slate-100 dark:bg-slate-800 dark:shadow-slate-100
+  border-slate-900 bg-lime-200 shadow-slate-900
+    shadow-[10px_5px] mt-5`}
    >
     <Progressbar
      question={question}
@@ -115,22 +118,32 @@ border-slate-900 bg-lime-100 shadow-slate-900
      )}
     </div>
    </div>
-   {isFinished && (
+   <CSSTransition
+    in={isFinished}
+    classNames="alert"
+    timeout={1000}
+    unmountOnExit
+   >
     <Result
      answers={answers}
      questions={questions}
      result={result}
      setResult={setResult}
     />
-   )}
-   {isFinished && (
+   </CSSTransition>
+   <CSSTransition
+    in={isFinished}
+    classNames="back"
+    timeout={3000}
+    unmountOnExit
+   >
     <div
      onClick={() => {
       window.location.reload(false);
      }}
      className="w-full h-screen top-0 absolute z-10 cursor-pointer bg-black opacity-50"
     ></div>
-   )}
+   </CSSTransition>
   </>
  );
 };
