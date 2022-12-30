@@ -18,7 +18,7 @@ const Categories = () => {
    {!categories.loading &&
     categories.categories.length &&
     categories.categories.map((category) => (
-     <Category>{category.name}</Category>
+     <Category key={category._id}>{category.name}</Category>
     ))}
   </div>
  );
