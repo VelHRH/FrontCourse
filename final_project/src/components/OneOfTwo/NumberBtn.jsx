@@ -1,8 +1,9 @@
 import React from "react";
 
-export const NumberBtn = ({ isClicked, children }) => {
+export const NumberBtn = ({ isClicked, children, handleModeChoice }) => {
  return (
   <div
+   onClick={() => handleModeChoice(children)}
    className={`${
     isClicked
      ? "bg-slate-50 text-blue-600"
