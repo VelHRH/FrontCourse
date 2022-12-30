@@ -10,5 +10,5 @@
 }
 .back-enter-active {
  opacity: 0.5;
- transition: all 2s ease;
+ transition: all 3s ease;
 }

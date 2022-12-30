@@ -1,6 +1,6 @@
 import React from "react";
 import { TrophyIcon, ShareIcon } from "@heroicons/react/24/solid";
-import { NumberBtn } from "../../OneOfTwo/NumberBtn";
+import { NumberBtn } from "../../components/OneOfTwo/NumberBtn";
 
 const Info = () => {
  return (
