@@ -32,7 +32,7 @@ function App() {
      <Route path="/quiz" element={<Task2 />} />
      <Route path="/photos" element={<Task3 />} />
      <Route path="/1of2" element={<Categories />} />
-     <Route path="/1of2/:id" element={<Subcategories />} />
+     <Route path="/1of2/:name" element={<Subcategories />} />
      <Route path="/1of2/:id/:id" element={<Info />} />
      <Route path="*" element={<Page404 />} />
     </Routes>
