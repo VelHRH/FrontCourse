@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../axios";
+import { RatingElement } from "../../components/OneOfTwo/RatingElement";
 
 const Rating = () => {
  const { name, id } = useParams();
@@ -22,7 +23,16 @@ const Rating = () => {
    ) : events === undefined ? (
     <div>No events on this subcategory</div>
    ) : (
-    events.map((event) => <div key={event._id}>{event.name}</div>)
+    events.map((event, index) => (
+     <RatingElement
+      key={event._id}
+      index={index + 1}
+      image={event.imgUrl}
+      wins={event.wins}
+     >
+      {event.name}
+     </RatingElement>
+    ))
    )}
   </div>
  );
