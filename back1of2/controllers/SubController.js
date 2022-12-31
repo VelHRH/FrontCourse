@@ -15,7 +15,7 @@ export const getOne = async (req, res) => {
         if (subcategory.subcategories.length === 0){
           return res.status(404).json({message: "Subcategory doesn't exist"});
         }
-         res.json(subcategory);
+         res.json(subcategory.subcategories[0]);
       }
     )
   }
@@ -24,3 +24,4 @@ export const getOne = async (req, res) => {
     res.status(500).json({message: "Unable to get category"});
   }
 }
+

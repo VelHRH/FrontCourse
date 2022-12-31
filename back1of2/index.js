@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose";
 import * as CategoryController from "./controllers/CategoryController.js"
 import * as SubController from "./controllers/SubController.js"
+import * as EventController from "./controllers/EventController.js"
 import cors from "cors"
 
 mongoose.connect(
@@ -17,6 +18,8 @@ app.use(cors());
 app.get('/categories', CategoryController.getAll);
 app.get('/categories/:name', CategoryController.getOne);
 app.get('/categories/:name/:id', SubController.getOne);
+app.get('/categories/:name/:id/rating', EventController.getRating);
+
 
 app.listen(4444, (err) => {
   if (err) {
