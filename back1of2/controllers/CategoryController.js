@@ -13,7 +13,7 @@ export const getAll = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const categoryName = req.params.id;
+    const categoryName = req.params.name;
     CategoryModel.findOne(
       {name: categoryName},
       "subcategories",
