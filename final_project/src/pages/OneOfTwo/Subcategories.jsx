@@ -22,7 +22,8 @@ const Subcategories = () => {
    {!isLoading &&
     subCategories.map((subCategory) => (
      <Link
-      to={`/1of2/${name}/${subCategory.name.toLowerCase().replace(/\s/g, "")}`}
+      key={subCategory.name}
+      to={`/1of2/${name}/${subCategory.name}`}
       className="w-full flex flex-col items-center"
      >
       <img

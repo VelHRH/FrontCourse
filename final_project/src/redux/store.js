@@ -5,7 +5,7 @@ import { categoriesReducer } from './slices/categories';
 const store = configureStore(
   {
     reducer: {
-      categories: categoriesReducer
+      categories: categoriesReducer,
     }
   }
 );
