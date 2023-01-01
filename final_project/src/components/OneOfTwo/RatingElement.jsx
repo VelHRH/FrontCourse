@@ -1,9 +1,18 @@
 import React from "react";
 import { TrophyIcon } from "@heroicons/react/24/solid";
 
-export const RatingElement = ({ index, image, children, wins }) => {
+export const RatingElement = ({
+ index,
+ image,
+ children,
+ wins,
+ handleClick,
+}) => {
  return (
-  <div className="w-full rounded-xl justify-between flex items-center bg-sky-200 p-4 mb-2 cursor-pointer hover:bg-sky-300">
+  <div
+   onClick={() => handleClick(index - 1)}
+   className="w-full rounded-xl justify-between flex items-center bg-sky-200 p-4 mb-2 cursor-pointer hover:bg-sky-300"
+  >
    <div className="flex items-center">
     <div className="text-3xl">{index}</div>
     <img
