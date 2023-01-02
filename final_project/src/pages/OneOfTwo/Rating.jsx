@@ -9,6 +9,7 @@ const Rating = () => {
  const [isLoading, setIsLoading] = useState(true);
  const [events, setEvents] = useState();
  const [isEventOpened, setIsEventOpened] = useState(-1);
+
  useEffect(() => {
   setIsLoading(true);
   axios
