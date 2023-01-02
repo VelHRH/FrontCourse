@@ -28,7 +28,7 @@ const Menu = () => {
  return (
   <>
    {isGame ? (
-    <Game clickedMode={clickedMode} />
+    <Game clickedMode={clickedMode} setIsGame={setIsGame} />
    ) : (
     <div className="mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%] mb-10">
      {isLoading && <div>Loading...</div>}

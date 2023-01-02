@@ -10,6 +10,7 @@ import Categories from "./pages/OneOfTwo/Categories";
 import Subcategories from "./pages/OneOfTwo/Subcategories";
 import Menu from "./pages/OneOfTwo/Menu";
 import Rating from "./pages/OneOfTwo/Rating";
+import Results from "./pages/OneOfTwo/Results";
 
 function App() {
  const [nightMode, setNightMode] = useState(false);
@@ -36,6 +37,7 @@ function App() {
      <Route path="/1of2/:name" element={<Subcategories />} />
      <Route path="/1of2/:name/:id" element={<Menu />} />
      <Route path="/1of2/:name/:id/rating" element={<Rating />} />
+     <Route path="/1of2/:name/:id/results" element={<Results />} />
      <Route path="*" element={<Page404 />} />
     </Routes>
    </BrowserRouter>

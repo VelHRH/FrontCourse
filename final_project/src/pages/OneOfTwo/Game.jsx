@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-const Game = ({ clickedMode }) => {
+const Game = ({ clickedMode, setIsGame }) => {
  const { name, id } = useParams();
  const [isLoading, setIsLoading] = useState(true);
  const [events, setEvents] = useState();
  const [curRound, setCurRound] = useState(1);
  const [stage, setStage] = useState(1);
+ const dispatch = useDispatch();
 
  let navigate = useNavigate();
 
@@ -61,13 +63,18 @@ const Game = ({ clickedMode }) => {
   events[index].curLikes++;
 
   if (curRound === parseInt(clickedMode - 1)) {
-   setEvents((eventList) => [
-    ...eventList,
-    events
-     .slice(curRound * 2 - 2, curRound * 2)
-     .filter((event) => event.curLikes === stage + 1)[0],
-   ]);
-   //return navigate("/");
+   setIsGame(false);
+
+   dispatch({
+    type: "FILL_RESULTS",
+    payload: [
+     ...events,
+     events
+      .slice(curRound * 2 - 2, curRound * 2)
+      .filter((event) => event.curLikes === stage + 1)[0],
+    ],
+   });
+   return navigate(`/1of2/${name}/${id}/results`);
   }
   if (curRound === parseInt(clickedMode) - 2) {
    setEvents((eventList) => [
@@ -90,9 +97,6 @@ const Game = ({ clickedMode }) => {
     <div>No events on this subcategory</div>
    ) : (
     <>
-     {console.log(curRound)}
-     {console.log(stage)}
-     {console.log(events)}
      <div className="mt-10 text-3xl text-center">
       {events[0].subcategory} - Round: {curRound}
      </div>
