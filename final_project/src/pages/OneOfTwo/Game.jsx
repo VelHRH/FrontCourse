@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../axios";
+import { useNavigate } from "react-router-dom";
 
 const Game = ({ clickedMode }) => {
  const { name, id } = useParams();
  const [isLoading, setIsLoading] = useState(true);
  const [events, setEvents] = useState();
  const [curRound, setCurRound] = useState(1);
- const [results, setResults] = useState([]);
+ const [stage, setStage] = useState(1);
+
+ let navigate = useNavigate();
 
  function shuffle(array) {
   let currentIndex = array.length,
@@ -44,23 +47,39 @@ const Game = ({ clickedMode }) => {
  }, []);
 
  useEffect(() => {
-  console.log(events);
-  if (curRound !== 1) {
+  if (curRound !== 1 && curRound !== parseInt(clickedMode) - 1) {
    setEvents((eventList) => [
     ...eventList,
-    events.slice(curRound * 2 - 2, curRound * 2),
+    events
+     .slice((curRound - 1) * 2 - 2, (curRound - 1) * 2)
+     .filter((event) => event.curLikes === stage)[0],
    ]);
   }
  }, [curRound]);
 
  const handleChoice = (index) => {
   events[index].curLikes++;
-  setResults((res) => [
-   ...res,
-   { id: events[curRound * 2 - 2]._id, isChosen: curRound * 2 - 2 === index },
-   { id: events[curRound * 2 - 1]._id, isChosen: curRound * 2 - 1 === index },
-  ]);
+
+  if (curRound === parseInt(clickedMode - 1)) {
+   setEvents((eventList) => [
+    ...eventList,
+    events
+     .slice(curRound * 2 - 2, curRound * 2)
+     .filter((event) => event.curLikes === stage + 1)[0],
+   ]);
+   //return navigate("/");
+  }
+  if (curRound === parseInt(clickedMode) - 2) {
+   setEvents((eventList) => [
+    ...eventList,
+    events
+     .slice(curRound * 2 - 2, curRound * 2)
+     .filter((event) => event.curLikes === stage)[0],
+   ]);
+  }
   setCurRound((round) => round + 1);
+  if (curRound !== 1 && powerOfTwo(parseInt(clickedMode) - curRound + 1))
+   setStage((s) => s + 1);
  };
 
  return (
@@ -71,6 +90,9 @@ const Game = ({ clickedMode }) => {
     <div>No events on this subcategory</div>
    ) : (
     <>
+     {console.log(curRound)}
+     {console.log(stage)}
+     {console.log(events)}
      <div className="mt-10 text-3xl text-center">
       {events[0].subcategory} - Round: {curRound}
      </div>
