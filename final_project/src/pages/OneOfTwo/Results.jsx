@@ -3,17 +3,36 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "../../axios";
 import { ResultElement } from "../../components/OneOfTwo/ResultElement";
+import { FunTip } from "../../components/OneOfTwo/FunTip";
+import { TrophyIcon, ShareIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 const Results = () => {
  const results = useSelector((state) => state.results);
  const [isLoading, setIsLoading] = useState(true);
+ const [tipText, setTipText] = useState("");
  const { name, id } = useParams();
  useEffect(() => {
   setIsLoading(true);
   axios
    .post(`/categories/${name}/${id}/results`, results)
    .then((res) => {
-    console.log(res);
+    if (res.data.res[res.data.res.length - 1].wins == 0) {
+     setTipText(`Wow! You've got an interesting taste, as this is the first win for "
+      ${res.data.res[res.data.res.length - 1].name}" here.`);
+    } else {
+     setTipText(
+      `Did you know? It's just ${
+       res.data.res[res.data.res.length - 1].wins + 1
+      }${
+       res.data.res[res.data.res.length - 1].wins + 1 === 2
+        ? "nd"
+        : res.data.res[res.data.res.length - 1].wins + 1 === 3
+        ? "rd"
+        : "th"
+      } win for "${res.data.res[res.data.res.length - 1].name}" here.`
+     );
+    }
    })
    .finally(() => setIsLoading(false));
  }, []);
@@ -47,7 +66,20 @@ const Results = () => {
         <ResultElement imgUrl={result.imgUrl} place={index + 1} />
        ))}
       </div>
-      <div className="w-[40%]"></div>
+      <div className="w-[40%] flex flex-col items-center">
+       <FunTip tipText={tipText} />
+       <Link
+        to={`/1of2/${name}/${id}/rating`}
+        className="text-xl flex w-[90%] mb-4 justify-center py-2 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500"
+       >
+        <TrophyIcon className="w-7 mr-2" />
+        Overall Rating
+       </Link>
+       <div className="text-xl flex w-[90%] justify-center py-2 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500">
+        <ShareIcon className="w-7 mr-2" />
+        Share
+       </div>
+      </div>
      </div>
     )}
    </div>
