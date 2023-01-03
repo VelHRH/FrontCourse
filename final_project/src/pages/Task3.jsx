@@ -7,8 +7,7 @@ import { Search } from "../components/Task3/Search";
 
 const Task3 = () => {
  const dispatch = useDispatch();
- const cards = useSelector((state) => state.cards);
-
+ const cards = useSelector((state) => state.cards.cards);
  const [curCategory, setCurCategory] = useState("");
  const [openedCard, setOpenedCard] = useState(-1);
  const [searchVal, setSearchVal] = useState("");

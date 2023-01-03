@@ -59,7 +59,7 @@ const Results = () => {
     ) : (
      <div className="flex w-full">
       <div className="w-[70%]">
-       <div className="text-3xl text-center mb-2">
+       <div className="text-3xl text-center mb-2 font-bold">
         Your results for {results.res[0].subcategory}
        </div>
        {filterRes(results.res).map((result, index) => (
