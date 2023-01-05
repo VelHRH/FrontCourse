@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 import * as CategoryController from "./controllers/CategoryController.js"
 import * as SubController from "./controllers/SubController.js"
 import * as EventController from "./controllers/EventController.js"
+import * as UserController from "./controllers/UserController.js"
 import cors from "cors"
+import { registerValidation } from './validations.js'
 
 mongoose.connect(
   'mongodb+srv://admin:wwwwww@cluster0.soz1hvz.mongodb.net/1of2?retryWrites=true&w=majority')
@@ -19,8 +21,9 @@ app.get('/categories', CategoryController.getAll);
 app.get('/categories/:name', CategoryController.getOne);
 app.get('/categories/:name/:id', SubController.getOne);
 app.get('/categories/:name/:id/rating', EventController.getRating);
-
 app.post('/categories/:name/:id/results', EventController.results);
+
+app.post('/register', registerValidation, UserController.register)
 
 app.listen(4444, (err) => {
   if (err) {
