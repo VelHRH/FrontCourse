@@ -1,19 +1,65 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, selectIsAuth } from "../redux/slices/auth";
 
 export const Navbar = ({ nightMode, setNightMode }) => {
+ const dispatch = useDispatch();
+ const isLogged = useSelector(selectIsAuth);
+ const userData = useSelector((state) => state.auth.data);
+
+ const onClickLogout = () => {
+  if (window.confirm("You sure you want to log out?")) {
+   dispatch(logout());
+   window.localStorage.removeItem("token");
+  }
+ };
  return (
   <>
-   <div
-    onClick={() => setNightMode(!nightMode)}
-    className={`p-2 border-2 mx-auto w-12 mt-3 rounded-xl ${
-     nightMode
-      ? "hover:bg-slate-200 bg-slate-50 text-slate-900 border-slate-900"
-      : "hover:bg-slate-900 bg-slate-800 text-slate-50 border-slate-50"
-    } cursor-pointer`}
-   >
-    {nightMode ? <SunIcon className="w-7" /> : <MoonIcon className="w-7" />}
+   <div className="flex justify-around items-center mt-3">
+    <div
+     onClick={() => setNightMode(!nightMode)}
+     className={`p-2 border-2 w-12 rounded-xl ${
+      nightMode
+       ? "hover:bg-slate-200 bg-slate-50 text-slate-900 border-slate-900"
+       : "hover:bg-slate-900 bg-slate-800 text-slate-50 border-slate-50"
+     } cursor-pointer`}
+    >
+     {nightMode ? <SunIcon className="w-7" /> : <MoonIcon className="w-7" />}
+    </div>
+    {isLogged ? (
+     <div className="flex items-center">
+      <Link to="/me">
+       <img
+        src="https://cdn.resfu.com/media/img_news/goal_kevindebruyne-cropped_qr5zvo5ekb1k173f5auabcbly.jpg"
+        alt="Profile"
+        className="w-14 h-14 rounded-full cursor-pointer object-cover"
+       />
+      </Link>
+      <Link to="/1of2">
+       <div
+        onClick={onClickLogout}
+        className="border-2 ml-3 p-1 text-sm rounded-md cursor-pointer text-slate-50 bg-red-500 hover:scale-110 ease-in duration-200"
+       >
+        Log Out
+       </div>
+      </Link>
+     </div>
+    ) : (
+     <div className="flex font-semibold cursor-pointer">
+      <Link to="/1of2/auth">
+       <div className="border-2 p-2 rounded-md border-transparent ease-in duration-200">
+        Sing In
+       </div>
+      </Link>
+      <Link to="/1of2/register">
+       <div className="border-2 p-2 rounded-md bg-gradient-to-r text-slate-50 from-cyan-500 to-blue-600 hover:scale-110 ease-in duration-200">
+        Register
+       </div>
+      </Link>
+     </div>
+    )}
    </div>
    <div className="flex w-[50%] h-20">
     <Link to="/convert">

@@ -11,6 +11,8 @@ import Subcategories from "./pages/OneOfTwo/Subcategories";
 import Menu from "./pages/OneOfTwo/Menu";
 import Rating from "./pages/OneOfTwo/Rating";
 import Results from "./pages/OneOfTwo/Results";
+import Register from "./pages/OneOfTwo/Register";
+import Login from "./pages/OneOfTwo/Login";
 
 function App() {
  const [nightMode, setNightMode] = useState(false);
@@ -35,6 +37,8 @@ function App() {
      <Route path="/photos" element={<Task3 />} />
      <Route path="/1of2" element={<Categories />} />
      <Route path="/1of2/:name" element={<Subcategories />} />
+     <Route path="/1of2/register" element={<Register />} />
+     <Route path="/1of2/auth" element={<Login />} />
      <Route path="/1of2/:name/:id" element={<Menu />} />
      <Route path="/1of2/:name/:id/rating" element={<Rating />} />
      <Route path="/1of2/:name/:id/results" element={<Results />} />

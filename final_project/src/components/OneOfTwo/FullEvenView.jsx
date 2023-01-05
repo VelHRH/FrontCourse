@@ -15,7 +15,6 @@ export const FullEvenView = ({
 }) => {
  return (
   <>
-   {console.log(link)}
    <div
     onClick={() => setIsEventOpened(-1)}
     className="fixed left-0 top-0 w-screen h-screen overscroll-none bg-slate-800 z-30 opacity-90"

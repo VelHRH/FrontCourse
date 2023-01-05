@@ -90,15 +90,17 @@ const Game = ({ clickedMode, setIsGame }) => {
  };
 
  return (
-  <>
+  <div className="w-full h-screen absolute top-0 bg-slate-50">
    {isLoading ? (
     <div>Loading...</div>
    ) : events === undefined ? (
     <div>No events on this subcategory</div>
    ) : (
     <>
-     <div className="mt-10 text-3xl text-center">
-      {events[0].subcategory} - Round: {curRound}
+     <div className="mt-5 text-3xl text-center">{events[0].subcategory}</div>
+     <div className="mt-3 text-3xl text-center">
+      Round: {curRound}/{parseInt(clickedMode) - 1} - Stage: {stage}/
+      {Math.log2(parseInt(clickedMode))}
      </div>
      <div className="w-full flex mt-3">
       <div className="w-1/2 h-[600px]">
@@ -111,7 +113,7 @@ const Game = ({ clickedMode, setIsGame }) => {
         onClick={() => handleChoice(curRound * 2 - 2)}
         src={events[curRound * 2 - 2].imgUrl}
         alt="Choice1"
-        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[290px] left-1/4 translate-x-[-50%] shadow-2xl hover:-rotate-3 ease-in-out duration-300"
+        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[220px] left-1/4 translate-x-[-50%] shadow-2xl hover:-rotate-3 ease-in-out duration-300"
        />
       </div>
       <div className="w-1/2 h-[600px]">
@@ -124,13 +126,13 @@ const Game = ({ clickedMode, setIsGame }) => {
         onClick={() => handleChoice(curRound * 2 - 1)}
         src={events[curRound * 2 - 1].imgUrl}
         alt="Choice1"
-        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[290px] right-1/4 translate-x-[50%] shadow-2xl hover:rotate-3 ease-in-out duration-300"
+        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[220px] right-1/4 translate-x-[50%] shadow-2xl hover:rotate-3 ease-in-out duration-300"
        />
       </div>
      </div>
     </>
    )}
-  </>
+  </div>
  );
 };
 
