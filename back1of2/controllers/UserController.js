@@ -61,3 +61,18 @@ export const login = async (req, res) => {
     res.status(500).json({ message: "Unable to login" });
   }
 }
+
+
+export const me = async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.userId);
+    if (!user) {
+      return res.status(403).json({ message: "No user found" });
+    }
+    res.json(user)
+  }
+  catch (err){
+    console.log(err);
+    res.status(500).json({ message: "Unable to see the information" });
+  }
+}

@@ -6,6 +6,7 @@ import * as EventController from "./controllers/EventController.js"
 import * as UserController from "./controllers/UserController.js"
 import cors from "cors"
 import { registerValidation } from './validations.js'
+import checkAuth from './utils/checkAuth.js'
 
 mongoose.connect(
   'mongodb+srv://admin:wwwwww@cluster0.soz1hvz.mongodb.net/1of2?retryWrites=true&w=majority')
@@ -24,7 +25,8 @@ app.get('/categories/:name/:id/rating', EventController.getRating);
 app.post('/categories/:name/:id/results', EventController.results);
 
 app.post('/register', registerValidation, UserController.register);
-app.post('/login', registerValidation, UserController.login);
+app.post('/login', UserController.login);
+app.get('/me', checkAuth, UserController.me);
 
 app.listen(4444, (err) => {
   if (err) {
