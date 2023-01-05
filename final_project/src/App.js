@@ -13,6 +13,8 @@ import Rating from "./pages/OneOfTwo/Rating";
 import Results from "./pages/OneOfTwo/Results";
 import Register from "./pages/OneOfTwo/Register";
 import Login from "./pages/OneOfTwo/Login";
+import { useDispatch } from "react-redux";
+import { fetchAuthMe } from './redux/slices/auth';
 
 function App() {
  const [nightMode, setNightMode] = useState(false);
@@ -26,6 +28,8 @@ function App() {
   }
  }, [nightMode]);
 
+ const dispatch = useDispatch();
+  useEffect(() => {dispatch(fetchAuthMe())},[])
  return (
   <>
    <BrowserRouter>
