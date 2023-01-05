@@ -23,7 +23,8 @@ app.get('/categories/:name/:id', SubController.getOne);
 app.get('/categories/:name/:id/rating', EventController.getRating);
 app.post('/categories/:name/:id/results', EventController.results);
 
-app.post('/register', registerValidation, UserController.register)
+app.post('/register', registerValidation, UserController.register);
+app.post('/login', registerValidation, UserController.login);
 
 app.listen(4444, (err) => {
   if (err) {

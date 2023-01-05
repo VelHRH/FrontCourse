@@ -1,6 +1,7 @@
 import UserModel from '../models/Users.js'
 import { validationResult } from 'express-validator'
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export const register = async (req, res) => {
   try {
@@ -21,10 +22,42 @@ export const register = async (req, res) => {
 
     const user = await doc.save();
 
-    res.json(user)
+    const token = jwt.sign(
+      {_id: user._id},
+      'secret123',
+      {expiresIn: '30d'}
+    );
+
+    res.json({...user._doc, token})
   }
   catch (err){
     console.log(err);
     res.status(500).json({ message: "Unable to register" });
+  }
+}
+
+export const login = async (req, res) => {
+  try {
+    const user = await UserModel.findOne({email: req.body.email});
+    if (!user) {
+      return res.status(400).json({ message: "Wrong email or password" });
+    }
+
+    const isValidPassword = await bcrypt.compare(req.body.password, user._doc.passwordHash);
+    if (!isValidPassword){
+      return res.status(400).json({ message: "Wrong email or password" });
+    }
+
+    const token = jwt.sign(
+      {_id: user._id},
+      'secret123',
+      {expiresIn: '30d'}
+    );
+
+    res.json({...user._doc, token})
+  }
+  catch (err){
+    console.log(err);
+    res.status(500).json({ message: "Unable to login" });
   }
 }
