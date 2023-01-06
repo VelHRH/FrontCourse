@@ -32,7 +32,7 @@ export const Navbar = ({ nightMode, setNightMode }) => {
      <div className="flex items-center">
       <Link to="/me">
        <img
-        src="https://cdn.resfu.com/media/img_news/goal_kevindebruyne-cropped_qr5zvo5ekb1k173f5auabcbly.jpg"
+        src={userData.imgUrl}
         alt="Profile"
         className="w-14 h-14 rounded-full cursor-pointer object-cover"
        />
