@@ -30,7 +30,7 @@ export const Navbar = ({ nightMode, setNightMode }) => {
     </div>
     {isLogged ? (
      <div className="flex items-center">
-      <Link to="/me">
+      <Link to="/1of2/me">
        <img
         src={userData.imgUrl}
         alt="Profile"
