@@ -55,10 +55,15 @@ const Me = () => {
         </div>
        </div>
        <div className="text-3xl mt-10">
-        1of2 games played: {userData.data.winners.length - 1}
+        1of2 games played:{" "}
+        {favouriteList(userData.data.winners).length > 0
+         ? userData.data.winners.length - 1
+         : "0"}
        </div>
        <div className="text-3xl mt-5">
-        Favourite event: {favouriteList(userData.data.winners)[0].name}
+        Favourite event:{" "}
+        {favouriteList(userData.data.winners).length > 0 &&
+         favouriteList(userData.data.winners)[0].name}
        </div>
       </div>
      </div>
@@ -66,7 +71,7 @@ const Me = () => {
       Your winners
      </div>
      <div className="grid gap-4 grid-cols-10">
-      {userData.data.winners.map((winner) => (
+      {userData.data.winners?.map((winner) => (
        <img
         src={winner.imgUrl}
         alt="Winner"
@@ -78,8 +83,7 @@ const Me = () => {
       Your favourites
      </div>
      <div className="flex-col">
-      {console.log(favouriteList(userData.data.winners))}
-      {favouriteList(userData.data.winners).map((winner, index) => (
+      {favouriteList(userData.data.winners)?.map((winner, index) => (
        <RatingElement
         key={winner._id}
         index={index + 1}
