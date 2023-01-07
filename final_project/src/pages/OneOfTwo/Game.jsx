@@ -99,8 +99,12 @@ const Game = ({ clickedMode, setIsGame }) => {
     <>
      <div className="mt-5 text-3xl text-center">{events[0].subcategory}</div>
      <div className="mt-3 text-3xl text-center">
-      Round: {curRound}/{parseInt(clickedMode) - 1} - Stage: {stage}/
-      {Math.log2(parseInt(clickedMode))}
+      Round: {curRound}/{parseInt(clickedMode) - 1} - Stage:{" "}
+      {Math.log2(parseInt(clickedMode) - curRound + 1) % 1 !== 0 ||
+      curRound === 1
+       ? stage
+       : stage + 1}
+      /{Math.log2(parseInt(clickedMode))}
      </div>
      <div className="w-full flex flex-col md:flex-row mt-3">
       <div className="w-full md:w-1/2 h-[300px] md:h-[600px]">
