@@ -5,7 +5,7 @@ export const FunTip = ({ tipText }) => {
  return (
   <div className="p-2 bg-sky-200 rounded-xl text-lg w-[90%] mb-5 text-slate-900">
    <div>{tipText}</div>
-   <FaceSmileIcon className="w-8 ml-[90%]" />
+   <FaceSmileIcon className="w-8 ml-[80%] md:ml-[90%]" />
   </div>
  );
 };

@@ -102,8 +102,8 @@ const Game = ({ clickedMode, setIsGame }) => {
       Round: {curRound}/{parseInt(clickedMode) - 1} - Stage: {stage}/
       {Math.log2(parseInt(clickedMode))}
      </div>
-     <div className="w-full flex mt-3">
-      <div className="w-1/2 h-[600px]">
+     <div className="w-full flex flex-col md:flex-row mt-3">
+      <div className="w-full md:w-1/2 h-[300px] md:h-[600px]">
        <img
         src={events[curRound * 2 - 2].imgUrl}
         alt="Choice1"
@@ -113,10 +113,10 @@ const Game = ({ clickedMode, setIsGame }) => {
         onClick={() => handleChoice(curRound * 2 - 2)}
         src={events[curRound * 2 - 2].imgUrl}
         alt="Choice1"
-        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[220px] left-1/4 translate-x-[-50%] shadow-2xl hover:-rotate-3 ease-in-out duration-300"
+        className="absolute cursor-pointer w-[350px] h-[200px] md:w-[700px] md:h-[400px] object-cover top-[160px] md:top-[220px] md:left-1/4 left-1/2 translate-x-[-50%] shadow-2xl hover:-rotate-3 ease-in-out duration-300"
        />
       </div>
-      <div className="w-1/2 h-[600px]">
+      <div className="w-full md:w-1/2 h-[300px] md:h-[600px]">
        <img
         src={events[curRound * 2 - 1].imgUrl}
         alt="Choice1"
@@ -126,7 +126,7 @@ const Game = ({ clickedMode, setIsGame }) => {
         onClick={() => handleChoice(curRound * 2 - 1)}
         src={events[curRound * 2 - 1].imgUrl}
         alt="Choice1"
-        className="absolute cursor-pointer w-[700px] h-[400px] object-cover top-[220px] right-1/4 translate-x-[50%] shadow-2xl hover:rotate-3 ease-in-out duration-300"
+        className="absolute cursor-pointer w-[350px] h-[200px] md:w-[700px] md:h-[400px] object-cover md:right-1/4 right-1/2 top-[470px] md:top-[220px] translate-x-[50%] shadow-2xl hover:rotate-3 ease-in-out duration-300"
        />
       </div>
      </div>

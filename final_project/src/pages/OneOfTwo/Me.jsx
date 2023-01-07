@@ -41,42 +41,42 @@ const Me = () => {
       <img
        src={userData.data.imgUrl}
        alt="Profile"
-       className="rounded-full w-[200px] h-[200px] object-cover m-5"
+       className="rounded-full w-[100px] h-[100px] md:w-[200px] md:h-[200px] object-cover m-5"
       />
       <div className="flex-col w-full mx-5 dark:text-slate-50">
        <div className="flex justify-between items-center">
-        <div className="text-5xl">{userData.data.login}</div>
+        <div className="text-2xl md:text-5xl">{userData.data.login}</div>
         <div className="flex">
-         <button className="p-2 text-xl bg-gradient-to-r text-slate-50 from-cyan-500 to-blue-600 hover:scale-110 mr-4 rounded-md ease-in-out duration-300">
+         <button className="p-2 text-lg md:text-xl bg-gradient-to-r text-slate-50 from-cyan-500 to-blue-600 hover:scale-110 mr-4 rounded-md ease-in-out duration-300">
           Edit
          </button>
-         <button className="p-2 text-xl bg-gradient-to-r text-slate-50 from-red-400 to-red-700 hover:scale-110 mr-4 rounded-md ease-in-out duration-300">
+         <button className="p-2 text-lg md:text-xl bg-gradient-to-r text-slate-50 from-red-400 to-red-700 hover:scale-110 mr-4 rounded-md ease-in-out duration-300">
           Delete
          </button>
         </div>
        </div>
-       <div className="text-3xl mt-10">
+       <div className="text-xl md:text-3xl mt-10">
         1of2 games played:{" "}
         {favouriteList(userData.data.winners).length > 0
-         ? userData.data.winners.length - 1
+         ? userData.data.winners.length
          : "0"}
        </div>
-       <div className="text-3xl mt-5">
+       <div className="text-xl md:text-3xl mt-5">
         Favourite event:{" "}
         {favouriteList(userData.data.winners).length > 0 &&
          favouriteList(userData.data.winners)[0].name}
        </div>
       </div>
      </div>
-     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4 dark:text-slate-50">
+     <div className="text-xl md:text-3xl border-b-2 border-slate-600 p-2 my-4 dark:text-slate-50">
       Your winners
      </div>
-     <div className="grid gap-4 grid-cols-10">
+     <div className="grid gap-4 grid-cols-5 md:grid-cols-10">
       {userData.data.winners?.map((winner) => (
        <Winner image={winner.imgUrl} date={winner.date} />
       ))}
      </div>
-     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4 mt-7 dark:text-slate-50">
+     <div className="text-xl md:text-3xl border-b-2 border-slate-600 p-2 my-4 mt-7 dark:text-slate-50">
       Your favourites
      </div>
      <div className="flex-col">
