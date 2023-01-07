@@ -11,7 +11,7 @@ export const RatingElement = ({
  return (
   <div
    onClick={() => handleClick(index - 1)}
-   className="w-full rounded-xl justify-between flex items-center bg-sky-200 p-4 mb-2 cursor-pointer hover:bg-sky-300"
+   className="w-full rounded-xl justify-between flex items-center bg-sky-200 dark:text-slate-50 dark:bg-slate-900 p-4 mb-2 cursor-pointer hover:bg-sky-300 hover:dark:bg-black"
   >
    <div className="flex items-center">
     <div className="text-3xl">{index}</div>

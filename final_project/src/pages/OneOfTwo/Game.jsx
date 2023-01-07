@@ -90,7 +90,7 @@ const Game = ({ clickedMode, setIsGame }) => {
  };
 
  return (
-  <div className="w-full h-screen absolute top-0 bg-slate-50">
+  <div className="w-full h-screen absolute top-0 bg-slate-50 dark:bg-slate-900 dark:text-slate-50">
    {isLoading ? (
     <div>Loading...</div>
    ) : events === undefined ? (

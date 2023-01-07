@@ -70,7 +70,7 @@ const Results = () => {
 
  return (
   <>
-   <div className="mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%] mb-10">
+   <div className="mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%] mb-10 dark:text-slate-50">
     {isLoading ? (
      <div>Loading...</div>
     ) : (

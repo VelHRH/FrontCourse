@@ -43,7 +43,7 @@ const Me = () => {
        alt="Profile"
        className="rounded-full w-[200px] h-[200px] object-cover m-5"
       />
-      <div className="flex-col w-full mx-5">
+      <div className="flex-col w-full mx-5 dark:text-slate-50">
        <div className="flex justify-between items-center">
         <div className="text-5xl">{userData.data.login}</div>
         <div className="flex">
@@ -68,7 +68,7 @@ const Me = () => {
        </div>
       </div>
      </div>
-     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4">
+     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4 dark:text-slate-50">
       Your winners
      </div>
      <div className="grid gap-4 grid-cols-10">
@@ -76,7 +76,7 @@ const Me = () => {
        <Winner image={winner.imgUrl} date={winner.date} />
       ))}
      </div>
-     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4 mt-7">
+     <div className="text-3xl border-b-2 border-slate-600 p-2 my-4 mt-7 dark:text-slate-50">
       Your favourites
      </div>
      <div className="flex-col">
