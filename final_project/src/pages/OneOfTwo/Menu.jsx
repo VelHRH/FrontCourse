@@ -66,18 +66,18 @@ const Menu = () => {
         </NumberBtn>
         <Link
          to={`/1of2/${name}/${id}/rating`}
-         className="text-2xl flex justify-center py-2 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500"
+         className="text-2xl flex justify-center py-2 dark:text-slate-900 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500"
         >
          <TrophyIcon className="w-7 mr-2" />
          Rating
         </Link>
-        <div className="text-2xl flex justify-center py-2 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500">
+        <div className="text-2xl flex justify-center py-2 dark:text-slate-900 text-slate-50 bg-gradient-to-r from-cyan-500 to-blue-600 cursor-pointer rounded-2xl hover:scale-110 ease-in-out duration-500">
          <ShareIcon className="w-7 mr-2" />
          Share
         </div>
         <div
          onClick={() => setIsGame(true)}
-         className="text-2xl col-span-2 flex justify-center py-2 text-slate-50 bg-gradient-to-r from-lime-500 to-green-600 cursor-pointer rounded-2xl hover:scale-105 ease-in-out duration-500"
+         className="text-2xl col-span-2 flex justify-center py-2 dark:text-slate-900 text-slate-50 bg-gradient-to-r from-lime-500 to-green-600 cursor-pointer rounded-2xl hover:scale-105 ease-in-out duration-500"
         >
          Start
         </div>
