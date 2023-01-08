@@ -43,7 +43,7 @@ const Me = () => {
        alt="Profile"
        className="rounded-full w-[100px] h-[100px] md:w-[200px] md:h-[200px] object-cover m-5"
       />
-      <div className="flex-col w-full mx-5 dark:text-slate-50">
+      <div className="flex-col w-full mx-5 dark:text-slate-50 p-4 rounded-lg border-2 border-slate-600">
        <div className="flex justify-between items-center">
         <div className="text-2xl md:text-5xl">{userData.data.login}</div>
         <div className="flex">

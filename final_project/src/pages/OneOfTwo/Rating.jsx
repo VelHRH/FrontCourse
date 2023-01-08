@@ -6,22 +6,48 @@ import { RatingElement } from "../../components/OneOfTwo/RatingElement";
 
 const Rating = () => {
  const { name, id } = useParams();
- const [isLoading, setIsLoading] = useState(true);
- const [events, setEvents] = useState();
+ const [events, setEvents] = useState([]);
  const [isEventOpened, setIsEventOpened] = useState(-1);
+ const [curPage, setCurPage] = useState(1);
+ const [fetching, setFetching] = useState(false);
 
  useEffect(() => {
-  setIsLoading(true);
-  axios
-   .get(`/categories/${name}/${id}/rating`)
-   .then((res) => {
-    setEvents(res.data);
-   })
-   .finally(() => setIsLoading(false));
+  if (fetching) {
+   axios
+    .get(`/categories/${name}/${id}/rating`)
+    .then((res) => {
+     setEvents([
+      ...events,
+      ...res.data.slice(8 * (curPage - 1), 8 * curPage || res.data.length),
+     ]);
+     setCurPage((prev) => prev + 1);
+    })
+    .finally(() => {
+     setFetching(false);
+    });
+  }
+ }, [fetching]);
+
+ useEffect(() => {
+  setFetching(true);
+  document.addEventListener("scroll", scrollHandler);
+  return function () {
+   document.removeEventListener("scroll", scrollHandler);
+  };
  }, []);
 
  const handleClick = (index) => {
   setIsEventOpened(index);
+ };
+
+ const scrollHandler = (e) => {
+  if (
+   e.target.documentElement.scrollHeight -
+    (e.target.documentElement.scrollTop + window.innerHeight) <
+   50
+  ) {
+   setFetching(true);
+  }
  };
 
  return (
@@ -37,9 +63,7 @@ const Rating = () => {
     />
    )}
    <div className="mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%] mb-10">
-    {isLoading ? (
-     <div>Loading...</div>
-    ) : events === undefined ? (
+    {events === undefined ? (
      <div>No events on this subcategory</div>
     ) : (
      events.map((event, index) => (
