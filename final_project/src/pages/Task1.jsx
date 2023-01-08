@@ -16,22 +16,23 @@ const requestOptions = {
 
 const Task1 = () => {
  const [amount, setAmount] = useState(0);
- const [cur1, setCur1] = useState("UA");
+ const [cur1, setCur1] = useState("UAH");
  const [cur1Full, setCur1Full] = useState("Hryvnia");
- const [cur2, setCur2] = useState("UA");
+ const [cur2, setCur2] = useState("UAH");
  const [cur2Full, setCur2Full] = useState("Hryvnia");
  const [isDropdown1, setIsDropdown1] = useState(false);
  const [isDropdown2, setIsDropdown2] = useState(false);
  const [exchangeRate, setExchangeRate] = useState(1);
+
  useEffect(() => {
   fetch(
-   "https://api.apilayer.com/exchangerates_data/latest?symbols=EUR%2CUAH%2CUSD&base=USD",
+   `https://api.apilayer.com/exchangerates_data/latest?symbols=${cur2}&base=${cur1}`,
    requestOptions
   )
    .then((response) => response.json())
-   .then((result) => console.log(result))
+   .then((result) => setExchangeRate(result.rates[cur2]))
    .catch((error) => console.log("error", error));
- }, []);
+ }, [cur1, cur2]);
  return (
   <>
    <div className="flex w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
