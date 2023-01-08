@@ -16,39 +16,39 @@ export const Dropdown = ({
   >
    <button
     onClick={() => {
-     setCur("UA");
+     setCur("UAH");
      setCurFull("Hryvnia");
      setIsDropdown(!isDropdown);
     }}
     className={`${
-     cur === "UA" ? "bg-slate-300" : "bg-slate-50"
+     cur === "UAH" ? "bg-slate-300" : "bg-slate-50"
     } border-2 border-slate-600 w-full text-left p-2 font-semibold hover:bg-slate-300 mb-px`}
    >
-    UA
+    UAH
    </button>
    <button
     onClick={() => {
-     setCur("US");
+     setCur("USD");
      setCurFull("Dollar");
      setIsDropdown(!isDropdown);
     }}
     className={`${
-     cur === "US" ? "bg-slate-300" : "bg-slate-50"
+     cur === "USD" ? "bg-slate-300" : "bg-slate-50"
     } border-2 border-slate-600 w-full text-left p-2 font-semibold hover:bg-slate-300 mb-px`}
    >
-    US
+    USD
    </button>
    <button
     onClick={() => {
-     setCur("EU");
+     setCur("EUR");
      setCurFull("Euro");
      setIsDropdown(!isDropdown);
     }}
     className={`${
-     cur === "EU" ? "bg-slate-300" : "bg-slate-50"
+     cur === "EUR" ? "bg-slate-300" : "bg-slate-50"
     } border-2 border-slate-600 w-full text-left p-2 font-semibold hover:bg-slate-300 mb-px`}
    >
-    EU
+    EUR
    </button>
   </div>
  );

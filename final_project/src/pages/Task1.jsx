@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AmountField } from "../components/Task1/AmountField";
 import { CurField } from "../components/Task1/CurField";
 import { Dropdown } from "../components/Task1/Dropdown";
 import { Result } from "../components/Task1/Result";
 import { SwapBtn } from "../components/Task1/SwapBtn";
+
+const myHeaders = new Headers();
+myHeaders.append("apikey", "tbGUHCosF0ZYvgGPx04QVeJZPTGdT3t5");
+
+const requestOptions = {
+ method: "GET",
+ redirect: "follow",
+ headers: myHeaders,
+};
 
 const Task1 = () => {
  const [amount, setAmount] = useState(0);
@@ -13,6 +22,16 @@ const Task1 = () => {
  const [cur2Full, setCur2Full] = useState("Hryvnia");
  const [isDropdown1, setIsDropdown1] = useState(false);
  const [isDropdown2, setIsDropdown2] = useState(false);
+ const [exchangeRate, setExchangeRate] = useState(1);
+ useEffect(() => {
+  fetch(
+   "https://api.apilayer.com/exchangerates_data/latest?symbols=EUR%2CUAH%2CUSD&base=USD",
+   requestOptions
+  )
+   .then((response) => response.json())
+   .then((result) => console.log(result))
+   .catch((error) => console.log("error", error));
+ }, []);
  return (
   <>
    <div className="flex w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
@@ -44,7 +63,12 @@ const Task1 = () => {
      />
     </div>
    </div>
-   <Result amount={amount} cur1Full={cur1Full} cur2Full={cur2Full} />
+   <Result
+    amount={amount}
+    cur1Full={cur1Full}
+    cur2Full={cur2Full}
+    exchangeRate={exchangeRate}
+   />
 
    <Dropdown
     cur={cur1}
