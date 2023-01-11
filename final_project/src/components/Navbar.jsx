@@ -49,7 +49,7 @@ export const Navbar = ({ nightMode, setNightMode }) => {
     ) : (
      <div className="flex font-semibold cursor-pointer">
       <Link to="/1of2/auth">
-       <div className="border-2 p-2 rounded-md border-transparent ease-in duration-200">
+       <div className="border-2 p-2 rounded-md border-transparent ease-in duration-200 dark:text-slate-50">
         Sing In
        </div>
       </Link>

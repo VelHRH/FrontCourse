@@ -21,17 +21,25 @@ const Subcategories = () => {
    {isLoading && <div>Loading...</div>}
    {!isLoading &&
     subCategories.map((subCategory) => (
-     <Link
-      key={subCategory.name}
-      to={`/1of2/${name}/${subCategory.name}`}
-      className="w-full flex flex-col items-center"
-     >
-      <img
-       src={subCategory.imgUrl}
-       alt={subCategory.name}
-       className="h-[300px] w-2/3 object-cover hover:scale-110 cursor-pointer ease-in-out duration-500 mb-3"
-      />
-     </Link>
+     <div className="group flex-col w-full h-full">
+      <Link
+       key={subCategory.name}
+       to={`/1of2/${name}/${subCategory.name}`}
+       className="w-full flex flex-col items-center"
+      >
+       <img
+        src={subCategory.imgUrl}
+        alt={subCategory.name}
+        className="group-hover:opacity-20 h-[300px] w-2/3 object-cover hover:scale-110 cursor-pointer ease-in-out duration-500 mb-3"
+       />
+      </Link>
+      <span
+       class="group-hover:opacity-100 ease-in-out duration-500 px-1 text-4xl text-slate-900 rounded-md absolute left-1/2 
+      -translate-x-1/2 translate-y-[-450%] opacity-0 cursor-pointer"
+      >
+       {subCategory.name}
+      </span>
+     </div>
     ))}
   </div>
  );
