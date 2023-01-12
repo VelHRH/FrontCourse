@@ -17,6 +17,7 @@ const Menu = () => {
  const { name, id } = useParams();
  const [isLoading, setIsLoading] = useState(true);
  useEffect(() => {
+  document.title = "Menu";
   setIsLoading(true);
   axios
    .get(`/categories/${name}/${id}`)

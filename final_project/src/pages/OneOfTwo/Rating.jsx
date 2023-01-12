@@ -29,6 +29,7 @@ const Rating = () => {
  }, [fetching]);
 
  useEffect(() => {
+  document.title = "Rating";
   setFetching(true);
   document.addEventListener("scroll", scrollHandler);
   return function () {

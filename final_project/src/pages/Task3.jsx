@@ -18,6 +18,7 @@ const Task3 = () => {
 
  useEffect(() => {
   document.addEventListener("scroll", scrollHandler);
+  document.title = "Photogramm";
   return function () {
    document.removeEventListener("scroll", scrollHandler);
   };

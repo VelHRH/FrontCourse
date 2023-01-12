@@ -28,6 +28,10 @@ const Task2 = () => {
   setAnswers([]);
  }, [mode]);
 
+ useEffect(() => {
+  document.title = "Quiz";
+ }, []);
+
  const qSwitcher = () => {
   question < mode && setQuestion(question + 1);
   question === mode && setIsFinished(true);

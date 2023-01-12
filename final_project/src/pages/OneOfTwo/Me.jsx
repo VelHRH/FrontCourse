@@ -9,6 +9,7 @@ const Me = () => {
  const dispatch = useDispatch();
  useEffect(() => {
   dispatch(fetchAuthMe());
+  document.title = "My page";
  }, []);
 
  const favouriteList = (arr) => {

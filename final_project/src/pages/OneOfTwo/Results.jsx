@@ -15,6 +15,7 @@ const Results = () => {
  const [isUpdated, setIsUpdated] = useState(false);
  const { name, id } = useParams();
  useEffect(() => {
+  document.title = "Results";
   setIsLoading(true);
   if (!isUpdated) {
    axios

@@ -8,6 +8,7 @@ const Subcategories = () => {
  const [subCategories, setSubCategories] = useState();
  const [isLoading, setIsLoading] = useState(true);
  useEffect(() => {
+  document.title = "Subcategories";
   setIsLoading(true);
   axios
    .get(`/categories/${name}`)

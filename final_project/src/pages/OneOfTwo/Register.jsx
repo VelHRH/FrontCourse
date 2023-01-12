@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
+import { useEffect } from "react";
 
 const Register = () => {
  const isAuth = useSelector(selectIsAuth);
@@ -20,6 +21,9 @@ const Register = () => {
   },
   mode: "onChange",
  });
+ useEffect(() => {
+  document.title = "Register";
+ }, []);
 
  const onSubmit = async (values) => {
   const data = await dispatch(fetchRegister(values));

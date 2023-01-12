@@ -9,10 +9,9 @@ const Categories = () => {
  const dispatch = useDispatch();
  useEffect(() => {
   dispatch(fetchCategories());
+  document.title = "1of2";
  }, []);
- useEffect(() => {
-  console.log(searchVal);
- }, [searchVal]);
+
  return (
   <>
    <div className="mt-10 w-[98%] md:w-[70%] ml-[50%] translate-x-[-50%] bg-gradient-to-r text-slate-50 from-cyan-500 to-blue-600 rounded-2xl p-1 h-10">

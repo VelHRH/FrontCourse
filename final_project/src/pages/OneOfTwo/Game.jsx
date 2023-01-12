@@ -35,6 +35,7 @@ const Game = ({ clickedMode, setIsGame }) => {
  }
 
  useEffect(() => {
+  document.title = "Game";
   setIsLoading(true);
   axios
    .get(`/categories/${name}/${id}/rating`)

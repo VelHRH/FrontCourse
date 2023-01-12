@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Index = () => {
+ useEffect(() => {
+  document.title = "Main";
+ }, []);
  return (
   <div className="w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">
    <div className="w-full p-3 text-2xl bg-pink-300 rounded-2xl text-pink-700 text-justify mb-4">

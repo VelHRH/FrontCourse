@@ -33,6 +33,10 @@ const Task1 = () => {
    .then((result) => setExchangeRate(result.rates[cur2]))
    .catch((error) => console.log("error", error));
  }, [cur1, cur2]);
+
+ useEffect(() => {
+  document.title = "Task 1";
+ }, []);
  return (
   <>
    <div className="flex w-[98%] md:w-[70%] justify-between ml-[50%] translate-x-[-50%] mt-10">

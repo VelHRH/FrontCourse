@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
+import { useEffect } from "react";
 
 const Login = () => {
  const isAuth = useSelector(selectIsAuth);
@@ -18,6 +19,10 @@ const Login = () => {
   },
   mode: "onChange",
  });
+
+ useEffect(() => {
+  document.title = "Login";
+ }, []);
 
  const onSubmit = async (values) => {
   const data = await dispatch(fetchAuth(values));

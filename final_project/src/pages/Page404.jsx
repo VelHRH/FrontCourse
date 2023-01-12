@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaceFrownIcon } from "@heroicons/react/24/solid";
 
 const Page404 = () => {
+ useEffect(() => {
+  document.title = "404";
+ }, []);
  return (
   <>
    <div
